@@ -2,6 +2,6 @@
 using namespace std;
 int main()
 {
-    cout<<"testing compiler";
+int soduku[9][9];
 return 0;
 }
