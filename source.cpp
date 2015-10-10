@@ -30,7 +30,7 @@ case1:   //label for goto syntax if user entered wrong input then start with thi
     cout<<"\n\t\t\t\t\t  Your entered soduku matrix is:\n";
     for(i=0;i<6;i++)
     {
-        gotoxy(30,y);
+        gotoxy(42,y);
         for(j=0;j<6;j++)
         {
 
@@ -40,7 +40,7 @@ case1:   //label for goto syntax if user entered wrong input then start with thi
     y++;
     }
 }
-    cout<<"\n\n\t\t\t\t\t\t!!!Message!!!\n\t\t\tIf entered soduku is correct press 1 and If incorrect press 2 \n";
+    cout<<"\n\n\t\t\t\t\t\t   !!!Message!!!\n\t\t\tIf entered soduku is correct press 1 and If incorrect press 2 \n\t\t\t\t\t\t\t";
     cin>>x;
 if(x==2)
 {
