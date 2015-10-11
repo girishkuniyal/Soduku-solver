@@ -2,6 +2,7 @@
 #include<windows.h>
 using namespace std;
 void gotoxy(int,int);
+int check1box(int soduku[6][6]);
                             /*starting of main function*/
 int main()
 {
@@ -46,6 +47,7 @@ if(x==2)
     goto case1;
 }
 										//checking of 3x3 box
+check1box(soduku);
 return 0;
 }
 
@@ -56,3 +58,42 @@ void gotoxy(int row,int column)
     coord.Y=column;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
 }
+int check1box(int soduku[6][6])
+{
+    cout<<"in check 1st box";
+    int a[9]={1,2,3,4,5,6,7,8,9};
+    int i,j,l;
+    int sze=9,k;
+    for(i=0;i<3;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+            for(l=0;l<sze;l++)
+            {
+                if(a[l]==soduku[i][j])
+                {
+                    fore(k=j;k<8;k++)
+                    {
+                    a[j]=a[l+1];
+                    }
+                    sze--;
+                    break;
+                }
+            }
+        }
+    }
+    if(sze==0)
+            {
+                cout<<"row 1 checked its ok";
+            }
+            else
+            {
+                cout<<"b0x 1 not arranged";
+            }
+return 0;
+}
+
+
+
+
+
