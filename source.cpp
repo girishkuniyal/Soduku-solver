@@ -3,6 +3,7 @@
 using namespace std;
 void gotoxy(int,int);
 int check1box(int soduku[6][6]);
+void print(int a[],int sze);
                             /*starting of main function*/
 int main()
 {
@@ -67,16 +68,18 @@ int check1box(int soduku[6][6])
     for(i=0;i<3;i++)
     {
         for(j=0;j<3;j++)
-        {
+        { cout<<"loopcheck"<<endl;
             for(l=0;l<sze;l++)
             {
                 if(a[l]==soduku[i][j])
                 {
-                    fore(k=j;k<8;k++)
+                    for(k=l;k<8;k++)
                     {
-                    a[j]=a[l+1];
+                    a[l]=a[l+1];
                     }
                     sze--;
+                    cout<<"size"<<sze<<endl;
+                    print(a,sze);
                     break;
                 }
             }
@@ -91,6 +94,15 @@ int check1box(int soduku[6][6])
                 cout<<"b0x 1 not arranged";
             }
 return 0;
+}
+void print(int a[],int sze)
+{
+    cout<<endl<<"printing a[]"<<endl;
+    int i;
+    for(i=0;i<sze;i++)
+    {
+        cout<<a[i]<<" ";
+    }
 }
 
 
