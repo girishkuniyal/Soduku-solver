@@ -45,7 +45,7 @@ if(x==2)
    system("cls");
     goto case1;
 }
-
+										//checking of 3x3 box
 return 0;
 }
 
