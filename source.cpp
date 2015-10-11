@@ -33,9 +33,7 @@ case1:   //label for goto syntax if user entered wrong input then start with thi
         gotoxy(42,y);
         for(j=0;j<6;j++)
         {
-
             cout<<"| "<<soduku[i][j]<<" |";
-
         }
     y++;
     }
