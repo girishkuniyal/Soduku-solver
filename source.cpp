@@ -3,7 +3,7 @@
 using namespace std;
 void gotoxy(int,int);
 int check1box(int soduku[6][6]);
-void print(int a[],int sze);
+void printarray(int a[],int sze);
                             /*starting of main function*/
 int main()
 {
@@ -61,25 +61,23 @@ void gotoxy(int row,int column)
 }
 int check1box(int soduku[6][6])
 {
-    cout<<"in check 1st box";
     int a[9]={1,2,3,4,5,6,7,8,9};
-    int i,j,l;
-    int sze=9,k;
+
+    int i,j,k,l;
+    int sze=9;
     for(i=0;i<3;i++)
     {
         for(j=0;j<3;j++)
-        { cout<<"loopcheck"<<endl;
-            for(l=0;l<sze;l++)
+        {
+            for(k=0;k<sze;k++)
             {
-                if(a[l]==soduku[i][j])
+                if(a[k]==soduku[i][j])
                 {
-                    for(k=l;k<8;k++)
+                    for(l=k;l<8;l++)
                     {
                     a[l]=a[l+1];
                     }
                     sze--;
-                    cout<<"size"<<sze<<endl;
-                    print(a,sze);
                     break;
                 }
             }
@@ -87,15 +85,15 @@ int check1box(int soduku[6][6])
     }
     if(sze==0)
             {
-                cout<<"row 1 checked its ok";
+                cout<<endl<<"row 1 checked its ok"<<endl;
             }
             else
             {
-                cout<<"b0x 1 not arranged";
+                cout<<endl<<"b0x 1 not arranged"<<endl;
             }
 return 0;
 }
-void print(int a[],int sze)
+void printarray(int a[],int sze)
 {
     cout<<endl<<"printing a[]"<<endl;
     int i;
