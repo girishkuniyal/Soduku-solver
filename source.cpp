@@ -6,6 +6,8 @@ int check1box(int soduku[6][6]);
 int check2box(int soduku[6][6]);
 int check3box(int soduku[6][6]);
 int check4box(int soduku[6][6]);
+int check5box(int soduku[6][6]);
+int check6box(int soduku[6][6]);
 void printarray(int a[],int sze);
 
                             /*starting of main function*/
@@ -45,7 +47,7 @@ case1:   //label for goto syntax if user entered wrong input then start with thi
     y++;
     }
 }
-    cout<<"\n\n\t\t\t\t\t\t   !!!Message!!!\n\t\t\tIf entered soduku is correct press 1 and If incorrect press 2 \n\t\t\t\t\t\t\t";
+    cout<<"\n\n\t\t\t\t\t\t   !!!Message!!!\n\t\t\tIf entered soduku is correct press 1 and If incorrect press 2 \n\t\t\t\t\t\t\t  ";
     cin>>x;
 if(x==2)
 {
@@ -57,6 +59,8 @@ check1box(soduku);
 check2box(soduku);
 check3box(soduku);
 check4box(soduku);
+check5box(soduku);
+check6box(soduku);
 return 0;
 }
 
@@ -69,11 +73,11 @@ void gotoxy(int row,int column)
 }
 int check1box(int soduku[6][6])
 {
-    int a[9]={1,2,3,4,5,6,7,8,9};
+    int a[6]={1,2,3,4,5,6};
 
     int i,j,k,l;
-    int sze=9;
-    for(i=0;i<3;i++)
+    int sze=6;
+    for(i=0;i<2;i++)
     {
         for(j=0;j<3;j++)
         {
@@ -81,7 +85,7 @@ int check1box(int soduku[6][6])
             {
                 if(a[k]==soduku[i][j])
                 {
-                    for(l=k;l<8;l++)
+                    for(l=k;l<5;l++)
                     {
                     a[l]=a[l+1];
                     }
@@ -103,11 +107,11 @@ return 0;
 }
 int check2box(int soduku[6][6])
 {
-    int a[9]={1,2,3,4,5,6,7,8,9};
+    int a[6]={1,2,3,4,5,6};
 
     int i,j,k,l;
-    int sze=9;
-    for(i=0;i<3;i++)
+    int sze=6;
+    for(i=0;i<2;i++)
     {
         for(j=3;j<6;j++)
         {
@@ -115,7 +119,7 @@ int check2box(int soduku[6][6])
             {
                 if(a[k]==soduku[i][j])
                 {
-                    for(l=k;l<8;l++)
+                    for(l=k;l<5;l++)
                     {
                     a[l]=a[l+1];
                     }
@@ -137,11 +141,11 @@ return 0;
 }
 int check3box(int soduku[6][6])
 {
-    int a[9]={1,2,3,4,5,6,7,8,9};
+    int a[6]={1,2,3,4,5,6};
 
     int i,j,k,l;
-    int sze=9;
-    for(i=3;i<6;i++)
+    int sze=6;
+    for(i=2;i<4;i++)
     {
         for(j=0;j<3;j++)
         {
@@ -149,7 +153,7 @@ int check3box(int soduku[6][6])
             {
                 if(a[k]==soduku[i][j])
                 {
-                    for(l=k;l<8;l++)
+                    for(l=k;l<5;l++)
                     {
                     a[l]=a[l+1];
                     }
@@ -161,21 +165,21 @@ int check3box(int soduku[6][6])
     }
     if(sze==0)
             {
-                cout<<endl<<"box 2 checked its ok"<<endl;
+                cout<<endl<<"box 3 checked its ok"<<endl;
             }
             else
             {
-                cout<<endl<<"b0x 2 not arranged"<<endl;
+                cout<<endl<<"b0x 3 not arranged"<<endl;
             }
 return 0;
 }
 int check4box(int soduku[6][6])
 {
-    int a[9]={1,2,3,4,5,6,7,8,9};
+    int a[6]={1,2,3,4,5,6};
 
     int i,j,k,l;
-    int sze=9;
-    for(i=3;i<6;i++)
+    int sze=6;
+    for(i=2;i<4;i++)
     {
         for(j=3;j<6;j++)
         {
@@ -183,7 +187,7 @@ int check4box(int soduku[6][6])
             {
                 if(a[k]==soduku[i][j])
                 {
-                    for(l=k;l<8;l++)
+                    for(l=k;l<5;l++)
                     {
                     a[l]=a[l+1];
                     }
@@ -195,11 +199,79 @@ int check4box(int soduku[6][6])
     }
     if(sze==0)
             {
-                cout<<endl<<"box 2 checked its ok"<<endl;
+                cout<<endl<<"box 4 checked its ok"<<endl;
             }
             else
             {
-                cout<<endl<<"b0x 2 not arranged"<<endl;
+                cout<<endl<<"b0x 4 not arranged"<<endl;
+            }
+return 0;
+}
+int check5box(int soduku[6][6])
+{
+    int a[6]={1,2,3,4,5,6};
+
+    int i,j,k,l;
+    int sze=6;
+    for(i=4;i<6;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+            for(k=0;k<sze;k++)
+            {
+                if(a[k]==soduku[i][j])
+                {
+                    for(l=k;l<5;l++)
+                    {
+                    a[l]=a[l+1];
+                    }
+                    sze--;
+                    break;
+                }
+            }
+        }
+    }
+    if(sze==0)
+            {
+                cout<<endl<<"box 5 checked its ok"<<endl;
+            }
+            else
+            {
+                cout<<endl<<"b0x 5 not arranged"<<endl;
+            }
+return 0;
+}
+int check6box(int soduku[6][6])
+{
+    int a[6]={1,2,3,4,5,6};
+
+    int i,j,k,l;
+    int sze=6;
+    for(i=4;i<6;i++)
+    {
+        for(j=3;j<6;j++)
+        {
+            for(k=0;k<sze;k++)
+            {
+                if(a[k]==soduku[i][j])
+                {
+                    for(l=k;l<5;l++)
+                    {
+                    a[l]=a[l+1];
+                    }
+                    sze--;
+                    break;
+                }
+            }
+        }
+    }
+    if(sze==0)
+            {
+                cout<<endl<<"box 6 checked its ok"<<endl;
+            }
+            else
+            {
+                cout<<endl<<"b0x 6 not arranged"<<endl;
             }
 return 0;
 }
