@@ -2,7 +2,9 @@
 #include<windows.h>
 using namespace std;
 void gotoxy(int,int);
-int checkbox(int soduku[6][6],int,int,int,int);
+void checkrow(int soduku[6][6],int);//where row starts with zero;
+void checkcol(int);
+int checkbox(int soduku[6][6],int,int,int,int);//first int for initializing i second for condition check for i;
 void printarray(int a[],int sze);
 
                             /*starting of main function*/
@@ -56,6 +58,10 @@ checkbox(soduku,2,4,0,3); //checking third box
 checkbox(soduku,2,4,3,6); //checking fourth box
 checkbox(soduku,4,6,0,3); //checking fifth box
 checkbox(soduku,4,6,3,6); //checking sixth box
+for(i=0;i<6;i++) //loop for checking row
+{
+    checkrow(soduku,i);
+}
 return 0;
 }
 
@@ -108,6 +114,35 @@ void printarray(int a[],int sze)
     {
         cout<<a[i]<<" ";
     }
+}
+void checkrow(int soduku[6][6],int x)
+{
+    int a[6]={1,2,3,4,5,6};
+    int i,j,k;
+    int sze=6;
+    for(i=0;i<6;i++)
+    {
+        for(j=0;j<sze;j++)
+        {
+            if(soduku[x][i]==a[j])
+            {
+                for(k=j;k<sze;k++)
+                {
+                    a[k]=a[k+1];
+                }
+                sze--;
+            }
+        }
+    }
+    if(sze==0)
+    {
+        cout<<endl<<"row is arranged"<<endl;
+    }
+    else
+    {
+        cout<<endl<<"row is not arranged"<<endl;
+    }
+
 }
 
 
