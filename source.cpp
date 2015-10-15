@@ -100,11 +100,7 @@ int checkbox(int soduku[6][6],int m,int n,int o,int p)
             }
         }
     }
-    if(sze==0)
-            {
-                cout<<endl<<"box is checked its arranged"<<endl;
-            }
-            else
+    if(sze!=0)
             {
                 cout<<endl<<"b0x is checked and its not arranged"<<endl;
             }
@@ -138,11 +134,7 @@ void checkrow(int soduku[6][6],int x)
             }
         }
     }
-    if(sze==0)
-    {
-        cout<<endl<<"row "<<x+1<<" is arranged"<<endl;
-    }
-    else
+    if(sze!=0)
     {
         cout<<endl<<"row "<<x+1<<" is not arranged"<<endl;
     }
@@ -167,11 +159,7 @@ void checkcol(int soduku[6][6],int y)
             }
         }
     }
-    if(sze==0)
-    {
-        cout<<endl<<"column "<<y+1<<" is arranged"<<endl;
-    }
-    else
+    if(sze!=0)
     {
         cout<<endl<<"column "<<y+1<<" is not arranged"<<endl;
     }
