@@ -140,11 +140,11 @@ void checkrow(int soduku[6][6],int x)
     }
     if(sze==0)
     {
-        cout<<endl<<"row is arranged"<<endl;
+        cout<<endl<<"row "<<x+1<<" is arranged"<<endl;
     }
     else
     {
-        cout<<endl<<"row is not arranged"<<endl;
+        cout<<endl<<"row "<<x+1<<" is not arranged"<<endl;
     }
 
 }
@@ -169,11 +169,11 @@ void checkcol(int soduku[6][6],int y)
     }
     if(sze==0)
     {
-        cout<<endl<<y+1<<"column is arranged"<<endl;
+        cout<<endl<<"column "<<y+1<<" is arranged"<<endl;
     }
     else
     {
-        cout<<endl<<y+1<<"column is not arranged"<<endl;
+        cout<<endl<<"column "<<y+1<<" is not arranged"<<endl;
     }
 }
 
