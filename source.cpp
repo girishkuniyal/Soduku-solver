@@ -6,6 +6,7 @@ void checkrow(int soduku[6][6],int);//where row starts with zero;
 void checkcol(int soduku[6][6],int);//where column starts with zero;
 int checkbox(int soduku[6][6],int,int,int,int);//first int for initializing i second for condition check for i;
 void printarray(int a[],int sze);
+void findzero(int soduku[6][6]);
 
                             /*starting of main function*/
 
@@ -66,6 +67,7 @@ for(i=0;i<6;i++) //loop for checking row
 {
     checkcol(soduku,i);
 }
+findzero(soduku);
 return 0;
 }
 
@@ -165,7 +167,21 @@ void checkcol(int soduku[6][6],int y)
     }
 }
 
-
+void findzero(int soduku[6][6])
+{
+int nofzero=0;
+for(int i=0;i<6;i++)
+{
+    for(int j=0;j<6;j++)
+    {
+        if(soduku[i][j]==0)
+        {
+            nofzero++;
+        }
+    }
+}
+cout<<endl<<"\t\t\t\tThe number of zeros/blanks is :"<<nofzero<<endl;
+}
 
 
 
