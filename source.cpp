@@ -1,15 +1,17 @@
 #include<iostream>
 #include<windows.h>
 using namespace std;
+//              functions are defined below main in same order;
 void gotoxy(int,int);
-void checkrow(int soduku[6][6],int);//where row starts with zero;
-void checkcol(int soduku[6][6],int);//where column starts with zero;
 int checkbox(int soduku[6][6],int,int,int,int);//first int for initializing i second for condition check for i;
 void printarray(int a[],int sze);
-void findzero(int soduku[6][6]);
+void checkrow(int soduku[6][6],int);//where row starts with zero;
+void checkcol(int soduku[6][6],int);//where column starts with zero;
+void findzeroposition(int soduku[6][6]);
+int selectbestelement(int soduku[6][6]);
 
                             /*starting of main function*/
-
+int positionofzero[36][2],p=0;//here k is for how many elements is zero ;
 int main()
 {
 int soduku[6][6];
@@ -20,7 +22,7 @@ case1:   //label for goto syntax if user entered wrong input then start with thi
     x=0;
     y=1;
     gotoxy(0,0);
-    cout<<"enter element of matrix continuously and enter 0 for non-determined value\n";
+    cout<<"\t******Enter element of matrix continuously and enter 0 for non-determined value******\n";
     for(i=0;i<6;i++)
     {
         for(j=0;j<6;j++)
@@ -67,7 +69,8 @@ for(i=0;i<6;i++) //loop for checking row
 {
     checkcol(soduku,i);
 }
-findzero(soduku);
+findzeroposition(soduku);
+selectbestelement(soduku);
 return 0;
 }
 
@@ -167,20 +170,82 @@ void checkcol(int soduku[6][6],int y)
     }
 }
 
-void findzero(int soduku[6][6])
+void findzeroposition(int soduku[6][6])
 {
-int nofzero=0;
+int f=0;//for handling global variable;
 for(int i=0;i<6;i++)
 {
     for(int j=0;j<6;j++)
     {
         if(soduku[i][j]==0)
         {
-            nofzero++;
+            positionofzero[p][f]=i;
+            f++;
+            positionofzero[p][f]=j;
+            p++;
+            f=0;
         }
     }
 }
-cout<<endl<<"\t\t\t\tThe number of zeros/blanks is :"<<nofzero<<endl;
+cout<<endl<<"\t\t\t\tThe number of zeros/blanks is :"<<p<<endl;
+}
+int selectbestelement(int soduku[6][6])
+{
+    //box arrangement is such as below:
+    /*  1   2
+        3   4
+        5   6      */
+    int einbox1=0,einbox2=0,einbox3=0,einbox4=0,einbox5=0,einbox6=0;
+    int j=0;
+    for(int i=0;i<p;i++)
+    {
+            if(positionofzero[i][j]==0||positionofzero[i][j]==1)
+            {
+                j++;
+                if(positionofzero[i][j]==0||positionofzero[i][j]==1||positionofzero[i][j]==2)
+                {
+                    einbox1++;
+                }
+                else if(positionofzero[i][j]==3||positionofzero[i][j]==4||positionofzero[i][j]==5)
+                {
+                    einbox2++;
+                }
+            j=0;
+            }
+            else if(positionofzero[i][j]==2||positionofzero[i][j]==3)
+            {
+                j++;
+                if(positionofzero[i][j]==0||positionofzero[i][j]==1||positionofzero[i][j]==2)
+                {
+                    einbox3++;
+                }
+                else if(positionofzero[i][j]==3||positionofzero[i][j]==4||positionofzero[i][j]==5)
+                {
+                    einbox4++;
+                }
+
+            j=0;
+            }
+            else if(positionofzero[i][j]==4||positionofzero[i][j]==5)
+            {
+                j++;
+                if(positionofzero[i][j]==0||positionofzero[i][j]==1||positionofzero[i][j]==2)
+                {
+                    einbox5++;
+                }
+                else if(positionofzero[i][j]==3||positionofzero[i][j]==4||positionofzero[i][j]==5)
+                {
+                    einbox6++;
+                }
+            j=0;
+            }
+    }
+            cout<<"element in box1 "<<einbox1<<endl;
+            cout<<"element in box2 "<<einbox2<<endl;
+            cout<<"element in box3 "<<einbox3<<endl;
+            cout<<"element in box4 "<<einbox4<<endl;
+            cout<<"element in box5 "<<einbox5<<endl;
+            cout<<"element in box6 "<<einbox6<<endl;
 }
 
 
