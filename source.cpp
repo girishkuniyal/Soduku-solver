@@ -246,6 +246,32 @@ int selectbestelement(int soduku[6][6])
             cout<<"element in box4 "<<einbox4<<endl;
             cout<<"element in box5 "<<einbox5<<endl;
             cout<<"element in box6 "<<einbox6<<endl;
+                                //try to choose best box
+            if(einbox1<=einbox2&&einbox1<=einbox3&&einbox1<=einbox4&&einbox1<=einbox5&&einbox1<=einbox6)
+            {
+                cout<<"einbox1 is smallest"<<endl;
+            }
+            else if(einbox2<=einbox1&&einbox2<=einbox3&&einbox2<=einbox4&&einbox2<=einbox5&&einbox2<=einbox6)
+            {
+                cout<<"einbox2 is smallest"<<endl;
+            }
+            else if(einbox3<=einbox2&&einbox3<=einbox1&&einbox3<=einbox4&&einbox3<=einbox5&&einbox3<=einbox6)
+            {
+                cout<<"einbox3 is smallest"<<endl;
+            }
+            else if(einbox4<=einbox1&&einbox4<=einbox2&&einbox4<=einbox3&&einbox4<=einbox5&&einbox4<=einbox6)
+            {
+                cout<<"einbox4 is smallest"<<endl;
+            }
+            else if(einbox5<=einbox2&&einbox5<=einbox3&&einbox5<=einbox4&&einbox5<=einbox1&&einbox1<=einbox6)
+            {
+                cout<<"einbox5 is smallest"<<endl;
+            }
+            else if(einbox6<=einbox2&&einbox6<=einbox3&&einbox6<=einbox4&&einbox6<=einbox5&&einbox1<=einbox1)
+            {
+                cout<<"einbox6 is smallest"<<endl;
+            }
+
 }
 
 
