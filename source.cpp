@@ -12,6 +12,9 @@ int selectbestelement(int soduku[6][6]);
 
                             /*starting of main function*/
 int positionofzero[36][2],p=0;//here k is for how many elements is zero ;
+/******************************************************************************************
+//                              Main function
+******************************************************************************************/
 int main()
 {
 int soduku[6][6];
@@ -22,7 +25,7 @@ case1:   //label for goto syntax if user entered wrong input then start with thi
     x=0;
     y=1;
     gotoxy(0,0);
-    cout<<"\t******Enter element of matrix continuously and enter 0 for non-determined value******\n";
+    cout<<"\t****Enter the Element of 6x6 matrix continuously and Enter 0 for non-determined value****\n";
     for(i=0;i<6;i++)
     {
         for(j=0;j<6;j++)
@@ -73,7 +76,9 @@ findzeroposition(soduku);
 selectbestelement(soduku);
 return 0;
 }
-
+/*******************************************************************************************
+//                                  gotoxy function
+*******************************************************************************************/
 void gotoxy(int row,int column)
 {
     COORD coord;
@@ -81,6 +86,9 @@ void gotoxy(int row,int column)
     coord.Y=column;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
 }
+/*******************************************************************************************
+                                    checkbox fuction
+*******************************************************************************************/
 int checkbox(int soduku[6][6],int m,int n,int o,int p)
 {
     int a[6]={1,2,3,4,5,6};
@@ -111,6 +119,9 @@ int checkbox(int soduku[6][6],int m,int n,int o,int p)
             }
 return 0;
 }
+/******************************************************************************************
+//                              printarray function
+******************************************************************************************/
 void printarray(int a[],int sze)
 {
     cout<<endl<<"printing a[]"<<endl;
@@ -120,6 +131,9 @@ void printarray(int a[],int sze)
         cout<<a[i]<<" ";
     }
 }
+/******************************************************************************************
+//                                  checkrow function
+******************************************************************************************/
 void checkrow(int soduku[6][6],int x)
 {
     int a[6]={1,2,3,4,5,6};
@@ -145,6 +159,9 @@ void checkrow(int soduku[6][6],int x)
     }
 
 }
+/*******************************************************************************************
+//                              checkcol function
+*******************************************************************************************/
 void checkcol(int soduku[6][6],int y)
 {
     int a[6]={1,2,3,4,5,6};
@@ -169,7 +186,9 @@ void checkcol(int soduku[6][6],int y)
         cout<<endl<<"column "<<y+1<<" is not arranged"<<endl;
     }
 }
-
+/*******************************************************************************************
+//                          findzeroposition function
+*******************************************************************************************/
 void findzeroposition(int soduku[6][6])
 {
 int f=0;//for handling global variable;
@@ -189,6 +208,9 @@ for(int i=0;i<6;i++)
 }
 cout<<endl<<"\t\t\t\tThe number of zeros/blanks is :"<<p<<endl;
 }
+/*******************************************************************************************
+//                          selectbestelement fuction
+*******************************************************************************************/
 int selectbestelement(int soduku[6][6])
 {
     //box arrangement is such as below:
@@ -245,7 +267,7 @@ int selectbestelement(int soduku[6][6])
             cout<<"element in box3 "<<einbox3<<endl;
             cout<<"element in box4 "<<einbox4<<endl;
             cout<<"element in box5 "<<einbox5<<endl;
-            cout<<"element in box6 "<<einbox6<<endl;
+            cout<<"element in box6 "<<einbox6<<endl<<endl;
                                 //try to choose best box
             if(einbox1<=einbox2&&einbox1<=einbox3&&einbox1<=einbox4&&einbox1<=einbox5&&einbox1<=einbox6)
             {
