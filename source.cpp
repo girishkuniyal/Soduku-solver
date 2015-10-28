@@ -27,6 +27,7 @@ void solve50box(int soduku[6][6]);
 void solve60row(int soduku[6][6]);
 void solve60col(int soduku[6][6]);
 void solve60box(int soduku[6][6]);
+void printsoduku(int soduku[6][6]);
                             /*starting of main function*/
 int positionofzero[36][2],p=0;//here k is for how many elements is zero ;
 /******************************************************************************************
@@ -75,7 +76,9 @@ if(x==2)
     goto case1;
 }
 /*checking soduku is solved or not*/
+solve10row(soduku);
 checkoutsoduku(soduku);
+printsoduku(soduku);
 /*if(findzero(soduku))
 {
     //apply solve proccess;
@@ -242,6 +245,53 @@ void checkoutsoduku(int soduku[6][6])
 ***************************************************************************************************************/
 void solve10row(int soduku[6][6])
 {
-
+    int temp=0;
+    int temp1,temp2;
+    for(int i=0;i<6;i++)
+    {
+        for(int j=0;j<6;j++)
+        {
+         if(soduku[i][j]==0)
+         {
+             temp++;
+             temp1=i;temp2=j;
+         }
+        }
+        if(temp==1)
+        {//solve problem;
+            int a[6]={1,2,3,4,5,6};
+            int l,m,n;
+            int sze=6;
+            for(l=0;l<6;l++)
+            {
+                for(m=0;m<sze;m++)
+                {
+                    if(soduku[i][l]==a[m])
+                    {
+                        for(n=m;n<sze;n++)
+                        {
+                            a[n]=a[n+1];
+                        }
+                        sze--;
+                    }
+                }
+            }
+        soduku[temp1][temp2]=a[0];
+        }
+        temp=0;
+    }
 }
-
+/***********************************************************************************************************
+                                        printsoduku function
+************************************************************************************************************/
+void printsoduku(int soduku[6][6])
+{
+    for(int i=0;i<6;i++)
+    {
+        for(int j=0;j<6;j++)
+        {
+            cout<<soduku[i][j]<<"  ";
+        }
+        cout<<endl;
+    }
+}
