@@ -5,10 +5,13 @@ using namespace std;
 void gotoxy(int,int);
 int checkbox(int soduku[6][6],int,int,int,int);//first int for initializing i second for condition check for i;
 void printarray(int a[],int sze);
-void checkrow(int soduku[6][6],int);//where row starts with zero;
-void checkcol(int soduku[6][6],int);//where column starts with zero;
+int  checkrow(int soduku[6][6],int);//where row starts with zero;
+int checkcol(int soduku[6][6],int);//where column starts with zero;
 void findzeroposition(int soduku[6][6]);
 int selectbestelement(int soduku[6][6]);
+void checkoutsoduku(int soduku[6][6]);
+void solve10row(int soduku[6][6]);
+void solve10col(int soduku[6][6]);
 
                             /*starting of main function*/
 int positionofzero[36][2],p=0;//here k is for how many elements is zero ;
@@ -57,23 +60,8 @@ if(x==2)
    system("cls");
     goto case1;
 }
-										//checking of 3x3 box
-checkbox(soduku,0,2,0,3); //checking first box
-checkbox(soduku,0,2,3,6); //checking second box
-checkbox(soduku,2,4,0,3); //checking third box
-checkbox(soduku,2,4,3,6); //checking fourth box
-checkbox(soduku,4,6,0,3); //checking fifth box
-checkbox(soduku,4,6,3,6); //checking sixth box
-for(i=0;i<6;i++) //loop for checking row
-{
-    checkrow(soduku,i);
-}
-for(i=0;i<6;i++) //loop for checking row
-{
-    checkcol(soduku,i);
-}
-findzeroposition(soduku);
-selectbestelement(soduku);
+/*checking soduku is solved or not*/
+checkoutsoduku(soduku);
 return 0;
 }
 /*******************************************************************************************
@@ -113,11 +101,12 @@ int checkbox(int soduku[6][6],int m,int n,int o,int p)
             }
         }
     }
-    if(sze!=0)
-            {
-                cout<<endl<<"b0x is checked and its not arranged"<<endl;
-            }
-return 0;
+    if(sze==0)
+    {
+        return 1;
+    }
+    else
+        return 0;
 }
 /******************************************************************************************
 //                              printarray function
@@ -134,7 +123,7 @@ void printarray(int a[],int sze)
 /******************************************************************************************
 //                                  checkrow function
 ******************************************************************************************/
-void checkrow(int soduku[6][6],int x)
+int checkrow(int soduku[6][6],int x)
 {
     int a[6]={1,2,3,4,5,6};
     int i,j,k;
@@ -153,16 +142,18 @@ void checkrow(int soduku[6][6],int x)
             }
         }
     }
-    if(sze!=0)
+    if(sze==0)//size is not zero only when row is not arranged;
     {
-        cout<<endl<<"row "<<x+1<<" is not arranged"<<endl;
+        return 1;
     }
+    else
+        return 0;
 
 }
 /*******************************************************************************************
 //                              checkcol function
 *******************************************************************************************/
-void checkcol(int soduku[6][6],int y)
+int checkcol(int soduku[6][6],int y)
 {
     int a[6]={1,2,3,4,5,6};
     int i,j,k;
@@ -181,13 +172,15 @@ void checkcol(int soduku[6][6],int y)
             }
         }
     }
-    if(sze!=0)
+    if(sze==0) //size is not zero only when column is not arranged;
     {
-        cout<<endl<<"column "<<y+1<<" is not arranged"<<endl;
+        return 1;
     }
+    else
+        return 0;
 }
 /*******************************************************************************************
-//                          findzeroposition function
+//                              findzeroposition function
 *******************************************************************************************/
 void findzeroposition(int soduku[6][6])
 {
@@ -295,7 +288,18 @@ int selectbestelement(int soduku[6][6])
             }
 
 }
-
-
+/************************************************************************************************************************
+//                                  checkoutsoduku function
+*************************************************************************************************************************/
+void checkoutsoduku(int soduku[6][6])
+{
+    int total=checkbox(soduku,0,2,0,3)+checkbox(soduku,0,2,3,6)+checkbox(soduku,2,4,0,3)+checkbox(soduku,2,4,3,6)+checkbox(soduku,4,6,0,3)+checkbox(soduku,4,6,3,6)
+    +checkrow(soduku,0)+checkrow(soduku,1)+checkrow(soduku,2)+checkrow(soduku,3)+checkrow(soduku,4)+checkrow(soduku,5)
+    +checkcol(soduku,0)+checkcol(soduku,1)+checkcol(soduku,2)+checkcol(soduku,3)+checkcol(soduku,4)+checkcol(soduku,5);
+    if(total==18)
+        cout<<"soduku is solved by soduku-solver and soduku is correct :)"<<endl;
+    else
+        cout<<"soduku is not solved by soduku-solver :("<<endl;
+}
 
 
