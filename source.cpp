@@ -28,6 +28,8 @@ void solve60row(int soduku[6][6]);
 void solve60col(int soduku[6][6]);
 void solve60box(int soduku[6][6]);
 void printsoduku(int soduku[6][6]);
+void tempsolve10box(int soduku[6][6],int r,int s,int t,int u);
+void solve(int soduku[6][6]);
                             /*starting of main function*/
 int positionofzero[36][2],p=0;//here k is for how many elements is zero ;
 /******************************************************************************************
@@ -76,18 +78,14 @@ if(x==2)
     goto case1;
 }
 /*checking soduku is solved or not*/
-solve10row(soduku);
+
+
+if(findzero(soduku))
+{
+    solve(soduku);
+}
 checkoutsoduku(soduku);
 printsoduku(soduku);
-/*if(findzero(soduku))
-{
-    //apply solve proccess;
-}
-else
-{
-    cout<<"no more operation to apply";
-}
-*/
 return 0;
 }
 /*******************************************************************************************
@@ -281,6 +279,155 @@ void solve10row(int soduku[6][6])
         temp=0;
     }
 }
+void solve10col(int soduku[6][6])
+{
+    int temp=0;
+    int temp1,temp2;
+    for(int i=0;i<6;i++)
+    {
+        for(int j=0;j<6;j++)
+        {
+         if(soduku[j][i]==0)
+         {
+             temp++;
+             temp1=j;temp2=i;
+         }
+        }
+        if(temp==1)
+        {//solve problem;
+            int a[6]={1,2,3,4,5,6};
+            int l,m,n;
+            int sze=6;
+            for(l=0;l<6;l++)
+            {
+                for(m=0;m<sze;m++)
+                {
+                    if(soduku[l][i]==a[m])
+                    {
+                        for(n=m;n<sze;n++)
+                        {
+                            a[n]=a[n+1];
+                        }
+                        sze--;
+                    }
+                }
+            }
+        soduku[temp1][temp2]=a[0];
+        }
+        temp=0;
+    }
+}
+void solve10box(int soduku[6][6])
+{
+    tempsolve10box(soduku,0,2,0,3);
+    tempsolve10box(soduku,0,2,3,6);
+    tempsolve10box(soduku,2,4,0,3);
+    tempsolve10box(soduku,2,4,3,6);
+    tempsolve10box(soduku,4,6,0,3);
+    tempsolve10box(soduku,4,6,3,6);
+}
+void solve20row(int soduku[6][6])
+{
+    int temp=0;
+    int temp1,temp2,temp3,temp4;
+    for(int i=0;i<6;i++)
+    {
+        for(int j=0;j<6;j++)
+        {
+            if(soduku[i][j]==0)
+            {
+                if(i<2&&j<3)
+                {
+                    temp1=0;temp2=2;temp3=0;temp4=3;
+                }
+                else if(i<2&&j>2)
+                {
+                    temp1=0;temp2=2;temp3=3;temp4=6;
+                }
+                else if(i>1&&i<4&&j<3)
+                {
+                    temp1=2;temp2=4;temp3=0;temp4=3;
+                }
+                else if(i>1&&i<4&&j>2)
+                {
+                    temp1=2;temp2=4;temp3=3;temp4=6;
+                }
+                else if(i>3&&j<3)
+                {
+                    temp1=4;temp2=6;temp3=0;temp4=3;
+                }
+                else if(i>3&&j>2)
+                {
+                    temp1=4;temp2=6;temp3=3;temp4=6;
+                }
+                int szea=6,szeb=6,szec=6;
+                int a[]={1,2,3,4,5,6};
+                for(int ll=0;ll<6;ll++)
+                {
+                    for(int mm=0;mm<szea;mm++)
+                    {
+                        if(soduku[i][ll]==a[mm])
+                        {
+                            for(int nn=mm;nn<szea;nn++)
+                            {
+                                a[nn]=a[nn+1];
+                            }
+                            szea--;
+                        }
+                    }
+                }
+                int b[]={1,2,3,4,5,6};
+                for(int ll=0;ll<6;ll++)
+                {
+                    for(int mm=0;mm<szeb;mm++)
+                    {
+                        if(soduku[ll][j]==a[mm])
+                        {
+                            for(int nn=mm;nn<szeb;nn++)
+                            {
+                                a[nn]=a[nn+1];
+                            }
+                            szeb--;
+                        }
+                    }
+                }
+                int c[]={1,2,3,4,5,6};
+                for(int ll=temp1;ll<temp2;ll++)
+                {
+                    for(int qq=temp3;qq<temp4;qq++)
+                    {
+                            for(int mm=0;mm<szec;mm++)
+                            {
+                                if(soduku[ll][qq]==a[mm])
+                                {
+                                    for(int nn=mm;nn<szec;nn++)
+                                    {
+                                        a[nn]=a[nn+1];
+                                    }
+                                    szec--;
+                                }
+                            }
+                    }
+
+                }
+                for(int ii=0;ii<szea;ii++)
+                {
+                    for(int jj=0;jj<szeb;jj++)
+                    {
+                        for(int kk=0;kk<szec;kk++)
+                        {
+                            if(a[ii]==b[jj]&&b[jj]==c[kk])
+                            {
+                                soduku[i][j]=a[ii];
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
 /***********************************************************************************************************
                                         printsoduku function
 ************************************************************************************************************/
@@ -294,4 +441,49 @@ void printsoduku(int soduku[6][6])
         }
         cout<<endl;
     }
+}
+void tempsolve10box(int soduku[6][6],int r,int s,int t,int u)
+{
+    int temp=0,temp1,temp2;
+    for(int p=r;p<s;p++)
+    {
+        for(int q=t;q<u;q++)
+        {
+            if(soduku[p][q]==0)
+            {
+                temp++;
+                temp1=p;temp2=q;
+            }
+        }
+    }
+    if(temp==1)
+    {
+        int a[6]={1,2,3,4,5,6};
+        int sze=6;
+        for(int i=r;i<s;i++)
+        {
+            for(int j=t;j<u;j++)
+            {
+                for(int k=0;k<sze;k++)
+                {
+                    if(a[k]==soduku[i][j])
+                    {
+                        for(int l=k;l<5;l++)
+                        {
+                        a[l]=a[l+1];
+                        }
+                        sze--;
+                        break;
+                    }
+                }
+            }
+        }
+        soduku[temp1][temp2]=a[0];
+    }
+}
+void solve(int soduku[6][6])
+{
+    solve10row(soduku);
+    solve10col(soduku);
+    solve10box(soduku);
 }
