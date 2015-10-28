@@ -7,16 +7,30 @@ int checkbox(int soduku[6][6],int,int,int,int);//first int for initializing i se
 void printarray(int a[],int sze);
 int  checkrow(int soduku[6][6],int);//where row starts with zero;
 int checkcol(int soduku[6][6],int);//where column starts with zero;
-void findzeroposition(int soduku[6][6]);
-int selectbestelement(int soduku[6][6]);
+int findzero(int soduku[6][6]);
 void checkoutsoduku(int soduku[6][6]);
 void solve10row(int soduku[6][6]);
 void solve10col(int soduku[6][6]);
-
+void solve10box(int soduku[6][6]);
+void solve20row(int soduku[6][6]);
+void solve20col(int soduku[6][6]);
+void solve20box(int soduku[6][6]);
+void solve30row(int soduku[6][6]);
+void solve30col(int soduku[6][6]);
+void solve30box(int soduku[6][6]);
+void solve40row(int soduku[6][6]);
+void solve40col(int soduku[6][6]);
+void solve40box(int soduku[6][6]);
+void solve50row(int soduku[6][6]);
+void solve50col(int soduku[6][6]);
+void solve50box(int soduku[6][6]);
+void solve60row(int soduku[6][6]);
+void solve60col(int soduku[6][6]);
+void solve60box(int soduku[6][6]);
                             /*starting of main function*/
 int positionofzero[36][2],p=0;//here k is for how many elements is zero ;
 /******************************************************************************************
-//                              Main function
+                                Main function
 ******************************************************************************************/
 int main()
 {
@@ -62,10 +76,19 @@ if(x==2)
 }
 /*checking soduku is solved or not*/
 checkoutsoduku(soduku);
+/*if(findzero(soduku))
+{
+    //apply solve proccess;
+}
+else
+{
+    cout<<"no more operation to apply";
+}
+*/
 return 0;
 }
 /*******************************************************************************************
-//                                  gotoxy function
+                                    gotoxy function
 *******************************************************************************************/
 void gotoxy(int row,int column)
 {
@@ -109,7 +132,7 @@ int checkbox(int soduku[6][6],int m,int n,int o,int p)
         return 0;
 }
 /******************************************************************************************
-//                              printarray function
+                                printarray function
 ******************************************************************************************/
 void printarray(int a[],int sze)
 {
@@ -121,7 +144,7 @@ void printarray(int a[],int sze)
     }
 }
 /******************************************************************************************
-//                                  checkrow function
+                                    checkrow function
 ******************************************************************************************/
 int checkrow(int soduku[6][6],int x)
 {
@@ -151,7 +174,7 @@ int checkrow(int soduku[6][6],int x)
 
 }
 /*******************************************************************************************
-//                              checkcol function
+                                checkcol function
 *******************************************************************************************/
 int checkcol(int soduku[6][6],int y)
 {
@@ -180,9 +203,9 @@ int checkcol(int soduku[6][6],int y)
         return 0;
 }
 /*******************************************************************************************
-//                              findzeroposition function
+//                              findzero function
 *******************************************************************************************/
-void findzeroposition(int soduku[6][6])
+int findzero(int soduku[6][6])
 {
 int f=0;//for handling global variable;
 for(int i=0;i<6;i++)
@@ -199,97 +222,10 @@ for(int i=0;i<6;i++)
         }
     }
 }
-cout<<endl<<"\t\t\t\tThe number of zeros/blanks is :"<<p<<endl;
-}
-/*******************************************************************************************
-//                          selectbestelement fuction
-*******************************************************************************************/
-int selectbestelement(int soduku[6][6])
-{
-    //box arrangement is such as below:
-    /*  1   2
-        3   4
-        5   6      */
-    int einbox1=0,einbox2=0,einbox3=0,einbox4=0,einbox5=0,einbox6=0;
-    int j=0;
-    for(int i=0;i<p;i++)
-    {
-            if(positionofzero[i][j]==0||positionofzero[i][j]==1)
-            {
-                j++;
-                if(positionofzero[i][j]==0||positionofzero[i][j]==1||positionofzero[i][j]==2)
-                {
-                    einbox1++;
-                }
-                else if(positionofzero[i][j]==3||positionofzero[i][j]==4||positionofzero[i][j]==5)
-                {
-                    einbox2++;
-                }
-            j=0;
-            }
-            else if(positionofzero[i][j]==2||positionofzero[i][j]==3)
-            {
-                j++;
-                if(positionofzero[i][j]==0||positionofzero[i][j]==1||positionofzero[i][j]==2)
-                {
-                    einbox3++;
-                }
-                else if(positionofzero[i][j]==3||positionofzero[i][j]==4||positionofzero[i][j]==5)
-                {
-                    einbox4++;
-                }
-
-            j=0;
-            }
-            else if(positionofzero[i][j]==4||positionofzero[i][j]==5)
-            {
-                j++;
-                if(positionofzero[i][j]==0||positionofzero[i][j]==1||positionofzero[i][j]==2)
-                {
-                    einbox5++;
-                }
-                else if(positionofzero[i][j]==3||positionofzero[i][j]==4||positionofzero[i][j]==5)
-                {
-                    einbox6++;
-                }
-            j=0;
-            }
-    }
-            cout<<"element in box1 "<<einbox1<<endl;
-            cout<<"element in box2 "<<einbox2<<endl;
-            cout<<"element in box3 "<<einbox3<<endl;
-            cout<<"element in box4 "<<einbox4<<endl;
-            cout<<"element in box5 "<<einbox5<<endl;
-            cout<<"element in box6 "<<einbox6<<endl<<endl;
-                                //try to choose best box
-            if(einbox1<=einbox2&&einbox1<=einbox3&&einbox1<=einbox4&&einbox1<=einbox5&&einbox1<=einbox6)
-            {
-                cout<<"einbox1 is smallest"<<endl;
-            }
-            else if(einbox2<=einbox1&&einbox2<=einbox3&&einbox2<=einbox4&&einbox2<=einbox5&&einbox2<=einbox6)
-            {
-                cout<<"einbox2 is smallest"<<endl;
-            }
-            else if(einbox3<=einbox2&&einbox3<=einbox1&&einbox3<=einbox4&&einbox3<=einbox5&&einbox3<=einbox6)
-            {
-                cout<<"einbox3 is smallest"<<endl;
-            }
-            else if(einbox4<=einbox1&&einbox4<=einbox2&&einbox4<=einbox3&&einbox4<=einbox5&&einbox4<=einbox6)
-            {
-                cout<<"einbox4 is smallest"<<endl;
-            }
-            else if(einbox5<=einbox2&&einbox5<=einbox3&&einbox5<=einbox4&&einbox5<=einbox1&&einbox1<=einbox6)
-            {
-                cout<<"einbox5 is smallest"<<endl;
-            }
-            else if(einbox6<=einbox2&&einbox6<=einbox3&&einbox6<=einbox4&&einbox6<=einbox5&&einbox1<=einbox1)
-            {
-                cout<<"einbox6 is smallest"<<endl;
-            }
-
+return p;
 }
 /************************************************************************************************************************
-//                                  checkoutsoduku function
+                                    checkoutsoduku function
 *************************************************************************************************************************/
 void checkoutsoduku(int soduku[6][6])
 {
@@ -301,5 +237,11 @@ void checkoutsoduku(int soduku[6][6])
     else
         cout<<"soduku is not solved by soduku-solver :("<<endl;
 }
+/**************************************************************************************************************
+                                    solverow,solvecol,solvebox functions
+***************************************************************************************************************/
+void solve10row(int soduku[6][6])
+{
 
+}
 
