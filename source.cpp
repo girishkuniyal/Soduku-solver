@@ -15,6 +15,11 @@ void solve10box(int soduku[6][6]);
 void printsoduku(int soduku[6][6]);
 void tempsolve10box(int soduku[6][6],int r,int s,int t,int u);
 void solve(int soduku[6][6]);
+int hardsolve(int soduku[6][6]);
+int countrowzero(int soduku[6][6],int x);
+int countcolzero(int soduku[6][6],int x);
+int smallestposition(int a[],int sze);
+void conflict(int soduku[6][6]);
                             /*starting of main function*/
 int p=0;//here k is for how many elements is zero ;
 /******************************************************************************************
@@ -62,10 +67,18 @@ if(x==2)
 }
 /*checking soduku is solved or not*/
 cout<<"\n\t\t\t\t\t!!please wait soduku is solving!!"<<endl;
-
+sollve:
 if(findzero(soduku))
 {
     solve(soduku);
+}
+if(findzero(soduku))
+{
+    if(hardsolve(soduku)==11)
+    {
+        goto sollve;
+    }
+
 }
 checkoutsoduku(soduku);
 printsoduku(soduku);
@@ -522,4 +535,320 @@ void solve(int soduku[6][6])
     {
         temp=0;
     }
+}
+int hardsolve(int soduku[6][6])
+{
+    starts:
+    int label[12];
+    label[0]=countrowzero(soduku,0);
+    label[1]=countrowzero(soduku,1);
+    label[2]=countrowzero(soduku,2);
+    label[3]=countrowzero(soduku,3);
+    label[4]=countrowzero(soduku,4);
+    label[5]=countrowzero(soduku,5);
+    labelfail:
+        if(smallestposition(label,6)==100)
+        {
+            conflict(soduku);
+            return 11;
+
+        }
+    int l=smallestposition(label,6);
+    if(l<6)
+    {
+        for(int i=0;i<6;i++)//for solving all labels from 0 to 5;
+        {
+            if(soduku[l][i]==0)
+            {
+                int a[6]={1,2,3,4,5,6},sze1=6;
+                int b[6]={1,2,3,4,5,6},sze2=6;
+                int c[6]={1,2,3,4,5,6},sze3=6;
+                for(int s=0;s<6;s++)//possible element by watching row
+                {
+                    for(int t=0;t<sze1;t++)
+                    {
+                       if(soduku[l][s]==a[t])
+                       {
+                           for(int z=t;z<sze1-1;z++)
+                           {
+                               a[z]=a[z+1];
+                           }
+                           sze1--;
+                       }
+                    }
+                }
+                for(int s=0;s<6;s++)//possible element by watching row
+                {
+                    for(int t=0;t<sze2;t++)
+                    {
+                       if(soduku[s][i]==b[t])
+                       {
+                           for(int z=t;z<sze2-1;z++)
+                           {
+                               b[z]=b[z+1];
+                           }
+                           sze2--;
+                       }
+                    }
+                }
+                /*for solving box*/
+                int m,n,o,p;
+                if(l<2&&i<3)
+                {
+                    m=0;
+                    n=2;
+                    o=0;
+                    p=3;
+                }
+                else if(l<2&&i>2)
+                {
+                    m=0;
+                    n=2;
+                    o=3;
+                    p=6;
+                }
+                else if(l>1&&l<4&&i<3)
+                {
+                    m=2;
+                    n=4;
+                    o=0;
+                    p=3;
+                }
+                else if(l>1&&l<4&&i>2)
+                {
+                    m=2;
+                    n=4;
+                    o=3;
+                    p=6;
+                }
+                else if(l>3&&i<3)
+                {
+                    m=4;
+                    n=6;
+                    o=0;
+                    p=3;
+                }
+                else if(l>3&&i>2)
+                {
+                    m=4;
+                    n=6;
+                    o=3;
+                    p=6;
+                }
+                for(int ii=m;ii<n;ii++)
+                {
+                    for(int jj=o;jj<p;jj++)
+                    {
+                       for(int kk=0;kk<sze3;kk++)
+                       {
+                           if(soduku[ii][jj]==c[kk])
+                           {
+                               for(int ss=kk;ss<sze3-1;ss++)
+                               {
+                                   c[ss]=c[ss+1];
+                               }
+                               sze3--;
+                           }
+                       }
+                    }
+                }
+    /*now we have all the possible value of soduku elements by row in a[],by column in b[] and by box is in c[]*/
+                int sol[6],szesol=0;
+                for(int ii=0;ii<sze1;ii++)
+                {
+                    for(int jj=0;jj<sze2;jj++)
+                    {
+                        for(int kk=0;kk<sze3;kk++)
+                        {
+                            if(a[ii]==b[jj]&&b[jj]==c[kk])
+                            {
+                                sol[szesol]=a[ii];
+                                szesol++;
+                            }
+                        }
+                    }
+                }
+                if(szesol==1)
+                {
+                    soduku[l][i]==sol[0];
+                    return 11;
+                }
+            }
+            if(i==5)
+            {
+                label[l]=10+label[l];
+                goto labelfail;
+            }
+        }
+    }
+//else statement if(l>5)
+}
+int countrowzero(int soduku[6][6],int x)//function for calculating zero in row where x is row number and return number of zero in row
+{
+    int temp=0;
+    for(int i=0;i<6;i++)
+    {
+        if(soduku[x][i]==0)
+        {
+            temp++;
+        }
+    }
+    return temp;
+}
+int countcolzero(int soduku[6][6],int x)//function for calculating zero in  column where x is column number and return number of zero in column
+{
+    int temp=0;
+    for(int i=0;i<6;i++)
+    {
+        if(soduku[i][x]==0)
+        {
+            temp++;
+        }
+    }
+    return temp;
+}
+int smallestposition(int label[],int sze)
+{
+    int x=1000;
+    for(int i=0;i<sze;i++)
+    {
+        if(label[i]<x&&label[i]<7)
+        {
+            x=i;
+        }
+    }
+    if(x!=1000)
+    {
+    return x;
+    }
+    else
+    {
+        return 100;
+    }
+
+}
+void conflict(int soduku[6][6])
+{
+for(int l=0;l<6;l++)
+{
+for(int i=0;i<6;i++)//for solving all labels from 0 to 5;
+        {
+            if(soduku[l][i]==0)
+            {
+                int a[6]={1,2,3,4,5,6},sze1=6;
+                int b[6]={1,2,3,4,5,6},sze2=6;
+                int c[6]={1,2,3,4,5,6},sze3=6;
+                for(int s=0;s<6;s++)//possible element by watching row
+                {
+                    for(int t=0;t<sze1;t++)
+                    {
+                       if(soduku[l][s]==a[t])
+                       {
+                           for(int z=t;z<sze1-1;z++)
+                           {
+                               a[z]=a[z+1];
+                           }
+                           sze1--;
+                       }
+                    }
+                }
+                for(int s=0;s<6;s++)//possible element by watching row
+                {
+                    for(int t=0;t<sze2;t++)
+                    {
+                       if(soduku[s][i]==b[t])
+                       {
+                           for(int z=t;z<sze2-1;z++)
+                           {
+                               b[z]=b[z+1];
+                           }
+                           sze2--;
+                       }
+                    }
+                }
+                /*for solving box*/
+                int m,n,o,p;
+                if(l<2&&i<3)
+                {
+                    m=0;
+                    n=2;
+                    o=0;
+                    p=3;
+                }
+                else if(l<2&&i>2)
+                {
+                    m=0;
+                    n=2;
+                    o=3;
+                    p=6;
+                }
+                else if(l>1&&l<4&&i<3)
+                {
+                    m=2;
+                    n=4;
+                    o=0;
+                    p=3;
+                }
+                else if(l>1&&l<4&&i>2)
+                {
+                    m=2;
+                    n=4;
+                    o=3;
+                    p=6;
+                }
+                else if(l>3&&i<3)
+                {
+                    m=4;
+                    n=6;
+                    o=0;
+                    p=3;
+                }
+                else if(l>3&&i>2)
+                {
+                    m=4;
+                    n=6;
+                    o=3;
+                    p=6;
+                }
+                for(int ii=m;ii<n;ii++)
+                {
+                    for(int jj=o;jj<p;jj++)
+                    {
+                       for(int kk=0;kk<sze3;kk++)
+                       {
+                           if(soduku[ii][jj]==c[kk])
+                           {
+                               for(int ss=kk;ss<sze3-1;ss++)
+                               {
+                                   c[ss]=c[ss+1];
+                               }
+                               sze3--;
+                           }
+                       }
+                    }
+                }
+    /*now we have all the possible value of soduku elements by row in a[],by column in b[] and by box is in c[]*/
+                int sol[6],szesol=0;
+                for(int ii=0;ii<sze1;ii++)
+                {
+                    for(int jj=0;jj<sze2;jj++)
+                    {
+                        for(int kk=0;kk<sze3;kk++)
+                        {
+                            if(a[ii]==b[jj]&&b[jj]==c[kk])
+                            {
+                                sol[szesol]=a[ii];
+                                szesol++;
+                            }
+                        }
+                    }
+                }
+                {
+                    soduku[l][i]==sol[0];
+                    return;
+                }
+            }
+
+}
+}
 }
