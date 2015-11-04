@@ -1,5 +1,4 @@
 #include<iostream>
-#include<conio.h>
 #include<windows.h>
 using namespace std;
 //              functions are defined below main in same order;
@@ -17,7 +16,7 @@ void printsoduku(int soduku[6][6]);
 void tempsolve10box(int soduku[6][6],int r,int s,int t,int u);
 void solve(int soduku[6][6]);
                             /*starting of main function*/
-int positionofzero[36][2],p=0;//here k is for how many elements is zero ;
+int p=0;//here k is for how many elements is zero ;
 /******************************************************************************************
                                 Main function
 ******************************************************************************************/
@@ -27,7 +26,6 @@ int soduku[6][6];
 int i,j; //for loops;
 int x,y; //for cursor position on screen;
 case1:   //label for goto syntax if user entered wrong input then start with this label;
-{
     x=0;
     y=1;
     gotoxy(0,0);
@@ -55,7 +53,6 @@ case1:   //label for goto syntax if user entered wrong input then start with thi
         }
     y++;
     }
-}
     cout<<"\n\n\t\t\t\t\t\t   !!!Message!!!\n\t\t\tIf entered soduku is correct press 1 and If incorrect press 2 \n\t\t\t\t\t\t\t  ";
     cin>>x;
 if(x==2)
@@ -72,8 +69,17 @@ if(findzero(soduku))
 }
 checkoutsoduku(soduku);
 printsoduku(soduku);
-getch();
-return 0;
+cout<<"\nPress any key for exit and 99 for solve again";
+cin>>x;
+if(x==99)
+{
+   system("cls");
+    goto case1;
+}
+else
+{
+ return 0;
+}
 }
 /*******************************************************************************************
                                     gotoxy function
@@ -132,7 +138,7 @@ void printarray(int a[],int sze)
     }
 }
 /******************************************************************************************
-                                    checkrow function//used by checksoduku
+                                    checkrow function//used by checksoduku for checking row is arranged or not
 ******************************************************************************************/
 int checkrow(int soduku[6][6],int x)
 {
@@ -195,18 +201,14 @@ int checkcol(int soduku[6][6],int y)
 *******************************************************************************************/
 int findzero(int soduku[6][6])
 {
-int f=0;//for handling global variable;
+    p=0;
 for(int i=0;i<6;i++)
 {
     for(int j=0;j<6;j++)
     {
         if(soduku[i][j]==0)
         {
-            positionofzero[p][f]=i;
-            f++;
-            positionofzero[p][f]=j;
             p++;
-            f=0;
         }
     }
 }
@@ -368,7 +370,156 @@ void tempsolve10box(int soduku[6][6],int r,int s,int t,int u)
 }
 void solve(int soduku[6][6])
 {
+    solveagain:
     solve10row(soduku);
     solve10col(soduku);
     solve10box(soduku);
+    int temp=0;
+    //checking for row if its have only one zero in row
+    for(int i=0;i<6;i++)
+    {
+        for(int j=0;j<6;j++)
+        {
+         if(soduku[i][j]==0)
+         {
+             temp++;
+         }
+        }
+        if(temp==1)
+        {
+            goto solveagain;
+        }
+        else
+        {
+            temp=0;
+        }
+    }
+    //checking for column if its have only one zero in column;
+    for(int i=0;i<6;i++)
+    {
+        for(int j=0;j<6;j++)
+        {
+         if(soduku[j][i]==0)
+         {
+             temp++;
+         }
+        }
+        if(temp==1)
+        {
+            goto solveagain;
+        }
+        else
+        {
+            temp=0;
+        }
+    }
+    //checking for box if its have only one zero in box;
+    for(int i=0;i<2;i++)//check first box
+    {
+        for(int j=0;j<3;j++)
+        {
+            if(soduku[i][j]==0)
+            {
+                temp++;
+            }
+        }
+    }
+    if(temp==1)
+    {
+        goto solveagain;
+    }
+    else
+    {
+        temp=0;
+    }
+    for(int i=0;i<2;i++)//check second box
+    {
+        for(int j=3;j<6;j++)
+        {
+            if(soduku[i][j]==0)
+            {
+                temp++;
+            }
+        }
+    }
+    if(temp==1)
+    {
+        goto solveagain;
+    }
+    else
+    {
+        temp=0;
+    }
+    for(int i=2;i<4;i++)//check third box
+    {
+        for(int j=0;j<3;j++)
+        {
+            if(soduku[i][j]==0)
+            {
+                temp++;
+            }
+        }
+    }
+    if(temp==1)
+    {
+        goto solveagain;
+    }
+    else
+    {
+        temp=0;
+    }
+    for(int i=2;i<4;i++)//check box fourth
+    {
+        for(int j=3;j<6;j++)
+        {
+            if(soduku[i][j]==0)
+            {
+                temp++;
+            }
+        }
+    }
+    if(temp==1)
+    {
+        goto solveagain;
+    }
+    else
+    {
+        temp=0;
+    }
+    for(int i=4;i<6;i++)//check fifth box
+    {
+        for(int j=0;j<3;j++)
+        {
+            if(soduku[i][j]==0)
+            {
+                temp++;
+            }
+        }
+    }
+    if(temp==1)
+    {
+        goto solveagain;
+    }
+    else
+    {
+        temp=0;
+    }
+    for(int i=4;i<6;i++)//check box sixth
+    {
+        for(int j=3;j<6;j++)
+        {
+            if(soduku[i][j]==0)
+            {
+                temp++;
+            }
+        }
+    }
+    if(temp==1)
+    {
+        goto solveagain;
+    }
+    else
+    {
+        temp=0;
+    }
 }
