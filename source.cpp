@@ -1,4 +1,5 @@
 #include<iostream>
+#include<conio.h>
 #include<windows.h>
 using namespace std;
 //              functions are defined below main in same order;
@@ -12,21 +13,6 @@ void checkoutsoduku(int soduku[6][6]);
 void solve10row(int soduku[6][6]);
 void solve10col(int soduku[6][6]);
 void solve10box(int soduku[6][6]);
-void solve20row(int soduku[6][6]);
-void solve20col(int soduku[6][6]);
-void solve20box(int soduku[6][6]);
-void solve30row(int soduku[6][6]);
-void solve30col(int soduku[6][6]);
-void solve30box(int soduku[6][6]);
-void solve40row(int soduku[6][6]);
-void solve40col(int soduku[6][6]);
-void solve40box(int soduku[6][6]);
-void solve50row(int soduku[6][6]);
-void solve50col(int soduku[6][6]);
-void solve50box(int soduku[6][6]);
-void solve60row(int soduku[6][6]);
-void solve60col(int soduku[6][6]);
-void solve60box(int soduku[6][6]);
 void printsoduku(int soduku[6][6]);
 void tempsolve10box(int soduku[6][6],int r,int s,int t,int u);
 void solve(int soduku[6][6]);
@@ -78,7 +64,7 @@ if(x==2)
     goto case1;
 }
 /*checking soduku is solved or not*/
-
+cout<<"\n\t\t\t\t\t!!please wait soduku is solving!!"<<endl;
 
 if(findzero(soduku))
 {
@@ -86,6 +72,7 @@ if(findzero(soduku))
 }
 checkoutsoduku(soduku);
 printsoduku(soduku);
+getch();
 return 0;
 }
 /*******************************************************************************************
@@ -99,7 +86,7 @@ void gotoxy(int row,int column)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
 }
 /*******************************************************************************************
-                                    checkbox fuction
+                                    checkbox fuction//used by checksoduku
 *******************************************************************************************/
 int checkbox(int soduku[6][6],int m,int n,int o,int p)
 {
@@ -133,7 +120,7 @@ int checkbox(int soduku[6][6],int m,int n,int o,int p)
         return 0;
 }
 /******************************************************************************************
-                                printarray function
+                                printarray function:for printing 1 dimension array
 ******************************************************************************************/
 void printarray(int a[],int sze)
 {
@@ -145,7 +132,7 @@ void printarray(int a[],int sze)
     }
 }
 /******************************************************************************************
-                                    checkrow function
+                                    checkrow function//used by checksoduku
 ******************************************************************************************/
 int checkrow(int soduku[6][6],int x)
 {
@@ -175,7 +162,7 @@ int checkrow(int soduku[6][6],int x)
 
 }
 /*******************************************************************************************
-                                checkcol function
+                                checkcol function//used by checksoduku
 *******************************************************************************************/
 int checkcol(int soduku[6][6],int y)
 {
@@ -234,9 +221,9 @@ void checkoutsoduku(int soduku[6][6])
     +checkrow(soduku,0)+checkrow(soduku,1)+checkrow(soduku,2)+checkrow(soduku,3)+checkrow(soduku,4)+checkrow(soduku,5)
     +checkcol(soduku,0)+checkcol(soduku,1)+checkcol(soduku,2)+checkcol(soduku,3)+checkcol(soduku,4)+checkcol(soduku,5);
     if(total==18)
-        cout<<"soduku is solved by soduku-solver and soduku is correct :)"<<endl;
+        cout<<"\n\n\t\t\t\t\t!!!soduku is solved Successfully :) !!!"<<endl;
     else
-        cout<<"soduku is not solved by soduku-solver :("<<endl;
+        cout<<"\n\n\t\t\t\t!!!soduku is not solved or solved incorrectly:( !!!"<<endl;
 }
 /**************************************************************************************************************
                                     solverow,solvecol,solvebox functions
@@ -293,7 +280,7 @@ void solve10col(int soduku[6][6])
              temp1=j;temp2=i;
          }
         }
-        if(temp==1)
+        if(temp==1)//if there is only one zero then solve otherwise skip
         {//solve problem;
             int a[6]={1,2,3,4,5,6};
             int l,m,n;
@@ -325,108 +312,6 @@ void solve10box(int soduku[6][6])
     tempsolve10box(soduku,2,4,3,6);
     tempsolve10box(soduku,4,6,0,3);
     tempsolve10box(soduku,4,6,3,6);
-}
-void solve20row(int soduku[6][6])
-{
-    int temp=0;
-    int temp1,temp2,temp3,temp4;
-    for(int i=0;i<6;i++)
-    {
-        for(int j=0;j<6;j++)
-        {
-            if(soduku[i][j]==0)
-            {
-                if(i<2&&j<3)
-                {
-                    temp1=0;temp2=2;temp3=0;temp4=3;
-                }
-                else if(i<2&&j>2)
-                {
-                    temp1=0;temp2=2;temp3=3;temp4=6;
-                }
-                else if(i>1&&i<4&&j<3)
-                {
-                    temp1=2;temp2=4;temp3=0;temp4=3;
-                }
-                else if(i>1&&i<4&&j>2)
-                {
-                    temp1=2;temp2=4;temp3=3;temp4=6;
-                }
-                else if(i>3&&j<3)
-                {
-                    temp1=4;temp2=6;temp3=0;temp4=3;
-                }
-                else if(i>3&&j>2)
-                {
-                    temp1=4;temp2=6;temp3=3;temp4=6;
-                }
-                int szea=6,szeb=6,szec=6;
-                int a[]={1,2,3,4,5,6};
-                for(int ll=0;ll<6;ll++)
-                {
-                    for(int mm=0;mm<szea;mm++)
-                    {
-                        if(soduku[i][ll]==a[mm])
-                        {
-                            for(int nn=mm;nn<szea;nn++)
-                            {
-                                a[nn]=a[nn+1];
-                            }
-                            szea--;
-                        }
-                    }
-                }
-                int b[]={1,2,3,4,5,6};
-                for(int ll=0;ll<6;ll++)
-                {
-                    for(int mm=0;mm<szeb;mm++)
-                    {
-                        if(soduku[ll][j]==a[mm])
-                        {
-                            for(int nn=mm;nn<szeb;nn++)
-                            {
-                                a[nn]=a[nn+1];
-                            }
-                            szeb--;
-                        }
-                    }
-                }
-                int c[]={1,2,3,4,5,6};
-                for(int ll=temp1;ll<temp2;ll++)
-                {
-                    for(int qq=temp3;qq<temp4;qq++)
-                    {
-                            for(int mm=0;mm<szec;mm++)
-                            {
-                                if(soduku[ll][qq]==a[mm])
-                                {
-                                    for(int nn=mm;nn<szec;nn++)
-                                    {
-                                        a[nn]=a[nn+1];
-                                    }
-                                    szec--;
-                                }
-                            }
-                    }
-
-                }
-                for(int ii=0;ii<szea;ii++)
-                {
-                    for(int jj=0;jj<szeb;jj++)
-                    {
-                        for(int kk=0;kk<szec;kk++)
-                        {
-                            if(a[ii]==b[jj]&&b[jj]==c[kk])
-                            {
-                                soduku[i][j]=a[ii];
-                            }
-                        }
-                    }
-                }
-
-            }
-        }
-    }
 }
 /***********************************************************************************************************
                                         printsoduku function
