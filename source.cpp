@@ -27,7 +27,7 @@ int p=0;//here k is for how many elements is zero ;
 ******************************************************************************************/
 int main()
 {
-int soduku[6][6];
+    int soduku[6][6];
 int i,j; //for loops;
 int x,y; //for cursor position on screen;
 case1:   //label for goto syntax if user entered wrong input then start with this label;
@@ -70,11 +70,12 @@ cout<<"\n\t\t\t\t\t!!please wait soduku is solving!!"<<endl;
 sollve:
 if(findzero(soduku))
 {
+    cout<<"coming from hardsolve";
     solve(soduku);
 }
 if(findzero(soduku))
 {
-    if(hardsolve(soduku)==11)
+    if(hardsolve(soduku)==11||cout<<endl<<"call hard solve"<<endl)
     {
         goto sollve;
     }
@@ -245,6 +246,7 @@ void checkoutsoduku(int soduku[6][6])
 ***************************************************************************************************************/
 void solve10row(int soduku[6][6])
 {
+    cout<<"in solve 1 0 row "<<endl;
     int temp=0;
     int temp1,temp2;
     for(int i=0;i<6;i++)
@@ -276,13 +278,16 @@ void solve10row(int soduku[6][6])
                     }
                 }
             }
+            cout<<"value "<<a[0]<<"pos "<<temp1<<" "<<temp2<<endl;
         soduku[temp1][temp2]=a[0];
+        cout<<"apply value"<<soduku[temp1][temp2]<<endl;
         }
         temp=0;
     }
 }
 void solve10col(int soduku[6][6])
 {
+    cout<<"in solve 10 col"<<endl;
     int temp=0;
     int temp1,temp2;
     for(int i=0;i<6;i++)
@@ -314,13 +319,16 @@ void solve10col(int soduku[6][6])
                     }
                 }
             }
+            cout<<"value "<<a[0]<<"pos "<<temp1<<" "<<temp2<<endl;
         soduku[temp1][temp2]=a[0];
+        cout<<"apply value"<<soduku[temp1][temp2]<<endl;
         }
         temp=0;
     }
 }
 void solve10box(int soduku[6][6])
 {
+    cout<<"in solve box 10"<<endl;
     tempsolve10box(soduku,0,2,0,3);
     tempsolve10box(soduku,0,2,3,6);
     tempsolve10box(soduku,2,4,0,3);
@@ -378,12 +386,18 @@ void tempsolve10box(int soduku[6][6],int r,int s,int t,int u)
                 }
             }
         }
+         cout<<"value "<<a[0]<<"pos "<<temp1<<" "<<temp2<<endl;
         soduku[temp1][temp2]=a[0];
+        cout<<"apply value"<<soduku[temp1][temp2]<<endl;
     }
 }
+/********************************************************************************************************************
+                                        solve function
+**********************************************************************************************************************/
 void solve(int soduku[6][6])
 {
     solveagain:
+        cout<<"in solve"<<endl;
     solve10row(soduku);
     solve10col(soduku);
     solve10box(soduku);
@@ -400,6 +414,7 @@ void solve(int soduku[6][6])
         }
         if(temp==1)
         {
+            temp=0;
             goto solveagain;
         }
         else
@@ -419,6 +434,7 @@ void solve(int soduku[6][6])
         }
         if(temp==1)
         {
+            temp=0;
             goto solveagain;
         }
         else
@@ -670,7 +686,9 @@ int hardsolve(int soduku[6][6])
                 }
                 if(szesol==1)
                 {
-                    soduku[l][i]==sol[0];
+                    cout<<"value "<<sol[0]<<"pos "<<l<<" "<<i<<endl;
+                    soduku[l][i]=sol[0];
+                    cout<<"input is "<<soduku[l][i];
                     return 11;
                 }
             }
@@ -729,6 +747,7 @@ int smallestposition(int label[],int sze)
 }
 void conflict(int soduku[6][6])
 {
+    cout<<"in conflict"<<endl;
 for(int l=0;l<6;l++)
 {
 for(int i=0;i<6;i++)//for solving all labels from 0 to 5;
@@ -844,7 +863,10 @@ for(int i=0;i<6;i++)//for solving all labels from 0 to 5;
                     }
                 }
                 {
-                    soduku[l][i]==sol[0];
+                    cout<<"reached to conflict input"<<endl;
+                    cout<<"value "<<sol[0]<<" posit"<<l<<" "<<i<<endl;
+                    soduku[l][i]=sol[0];
+                    cout<<"value in soduku "<<soduku[l][i]<<endl;
                     return;
                 }
             }
