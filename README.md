@@ -26,5 +26,5 @@ STEP 2
 
 ![alt tag](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/step2.png)
 
-Thank you
+Thank you!!
  
