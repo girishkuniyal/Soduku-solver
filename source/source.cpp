@@ -34,7 +34,7 @@ case1:   //label for goto syntax if user entered wrong input then start with thi
     x=0;
     y=1;
     gotoxy(0,0);
-    cout<<"\t****Enter the Element of 6x6 matrix continuously and Enter 0 for non-determined value****\n";
+    cout<<"  **Enter the Element of 6x6 Soduku matrix and Enter 0 for not known value**\n\t\t\t\t\t\t  (Cursor travels row by row)";
     for(i=0;i<6;i++)
     {
         for(j=0;j<6;j++)
@@ -748,12 +748,16 @@ int smallestposition(int label[],int sze)
 void conflict(int soduku[6][6])
 {
     cout<<"in conflict"<<endl;
+    int sol[6],szesol=0;
+    int solrow[6],szesolrow=0;
+    int solcol[6],szesolcol=0;
 for(int l=0;l<6;l++)
 {
 for(int i=0;i<6;i++)//for solving all labels from 0 to 5;
         {
             if(soduku[l][i]==0)
             {
+                {
                 int a[6]={1,2,3,4,5,6},sze1=6;
                 int b[6]={1,2,3,4,5,6},sze2=6;
                 int c[6]={1,2,3,4,5,6},sze3=6;
@@ -847,7 +851,6 @@ for(int i=0;i<6;i++)//for solving all labels from 0 to 5;
                     }
                 }
     /*now we have all the possible value of soduku elements by row in a[],by column in b[] and by box is in c[]*/
-                int sol[6],szesol=0;
                 for(int ii=0;ii<sze1;ii++)
                 {
                     for(int jj=0;jj<sze2;jj++)
@@ -862,15 +865,259 @@ for(int i=0;i<6;i++)//for solving all labels from 0 to 5;
                         }
                     }
                 }
+                }
+            /***********************************************************************/
+            //solving row zero
+            for(int ff=0;ff<6;ff++)
+            {
+                if(soduku[l][ff]==0)
                 {
-                    cout<<"reached to conflict input"<<endl;
-                    cout<<"value "<<sol[0]<<" posit"<<l<<" "<<i<<endl;
-                    soduku[l][i]=sol[0];
-                    cout<<"value in soduku "<<soduku[l][i]<<endl;
-                    return;
+                    {
+                int a[6]={1,2,3,4,5,6},sze1=6;
+                int b[6]={1,2,3,4,5,6},sze2=6;
+                int c[6]={1,2,3,4,5,6},sze3=6;
+                for(int s=0;s<6;s++)//possible element by watching row
+                {
+                    for(int t=0;t<sze1;t++)
+                    {
+                       if(soduku[l][s]==a[t])
+                       {
+                           for(int z=t;z<sze1-1;z++)
+                           {
+                               a[z]=a[z+1];
+                           }
+                           sze1--;
+                       }
+                    }
+                }
+                for(int s=0;s<6;s++)//possible element by watching row
+                {
+                    for(int t=0;t<sze2;t++)
+                    {
+                       if(soduku[s][ff]==b[t])
+                       {
+                           for(int z=t;z<sze2-1;z++)
+                           {
+                               b[z]=b[z+1];
+                           }
+                           sze2--;
+                       }
+                    }
+                }
+                /*for solving box*/
+                int m,n,o,p;
+                if(l<2&&ff<3)
+                {
+                    m=0;
+                    n=2;
+                    o=0;
+                    p=3;
+                }
+                else if(l<2&&ff>2)
+                {
+                    m=0;
+                    n=2;
+                    o=3;
+                    p=6;
+                }
+                else if(l>1&&l<4&&ff<3)
+                {
+                    m=2;
+                    n=4;
+                    o=0;
+                    p=3;
+                }
+                else if(l>1&&l<4&&ff>2)
+                {
+                    m=2;
+                    n=4;
+                    o=3;
+                    p=6;
+                }
+                else if(l>3&&ff<3)
+                {
+                    m=4;
+                    n=6;
+                    o=0;
+                    p=3;
+                }
+                else if(l>3&&ff>2)
+                {
+                    m=4;
+                    n=6;
+                    o=3;
+                    p=6;
+                }
+                for(int ii=m;ii<n;ii++)
+                {
+                    for(int jj=o;jj<p;jj++)
+                    {
+                       for(int kk=0;kk<sze3;kk++)
+                       {
+                           if(soduku[ii][jj]==c[kk])
+                           {
+                               for(int ss=kk;ss<sze3-1;ss++)
+                               {
+                                   c[ss]=c[ss+1];
+                               }
+                               sze3--;
+                           }
+                       }
+                    }
+                }
+    /*now we have all the possible value of soduku elements by row in a[],by column in b[] and by box is in c[]*/
+                for(int ii=0;ii<sze1;ii++)
+                {
+                    for(int jj=0;jj<sze2;jj++)
+                    {
+                        for(int kk=0;kk<sze3;kk++)
+                        {
+                            if(a[ii]==b[jj]&&b[jj]==c[kk])
+                            {
+                                solrow[szesolrow]=a[ii];
+                                szesolrow++;
+                            }
+                        }
+                    }
+                }
+                }
                 }
             }
-
+            /************************************************************************/
+            for(int ff=0;ff<6;ff++)
+            {
+                if(soduku[ff][i]==0)
+                {
+                    {
+                int a[6]={1,2,3,4,5,6},sze1=6;
+                int b[6]={1,2,3,4,5,6},sze2=6;
+                int c[6]={1,2,3,4,5,6},sze3=6;
+                for(int s=0;s<6;s++)//possible element by watching row
+                {
+                    for(int t=0;t<sze1;t++)
+                    {
+                       if(soduku[ff][s]==a[t])
+                       {
+                           for(int z=t;z<sze1-1;z++)
+                           {
+                               a[z]=a[z+1];
+                           }
+                           sze1--;
+                       }
+                    }
+                }
+                for(int s=0;s<6;s++)//possible element by watching row
+                {
+                    for(int t=0;t<sze2;t++)
+                    {
+                       if(soduku[s][i]==b[t])
+                       {
+                           for(int z=t;z<sze2-1;z++)
+                           {
+                               b[z]=b[z+1];
+                           }
+                           sze2--;
+                       }
+                    }
+                }
+                /*for solving box*/
+                int m,n,o,p;
+                if(ff<2&&i<3)
+                {
+                    m=0;
+                    n=2;
+                    o=0;
+                    p=3;
+                }
+                else if(ff<2&&i>2)
+                {
+                    m=0;
+                    n=2;
+                    o=3;
+                    p=6;
+                }
+                else if(ff>1&&ff<4&&i<3)
+                {
+                    m=2;
+                    n=4;
+                    o=0;
+                    p=3;
+                }
+                else if(ff>1&&ff<4&&i>2)
+                {
+                    m=2;
+                    n=4;
+                    o=3;
+                    p=6;
+                }
+                else if(ff>3&&i<3)
+                {
+                    m=4;
+                    n=6;
+                    o=0;
+                    p=3;
+                }
+                else if(ff>3&&i>2)
+                {
+                    m=4;
+                    n=6;
+                    o=3;
+                    p=6;
+                }
+                for(int ii=m;ii<n;ii++)
+                {
+                    for(int jj=o;jj<p;jj++)
+                    {
+                       for(int kk=0;kk<sze3;kk++)
+                       {
+                           if(soduku[ii][jj]==c[kk])
+                           {
+                               for(int ss=kk;ss<sze3-1;ss++)
+                               {
+                                   c[ss]=c[ss+1];
+                               }
+                               sze3--;
+                           }
+                       }
+                    }
+                }
+    /*now we have all the possible value of soduku elements by row in a[],by column in b[] and by box is in c[]*/
+                for(int ii=0;ii<sze1;ii++)
+                {
+                    for(int jj=0;jj<sze2;jj++)
+                    {
+                        for(int kk=0;kk<sze3;kk++)
+                        {
+                            if(a[ii]==b[jj]&&b[jj]==c[kk])
+                            {
+                                solcol[szesolcol]=a[ii];
+                                szesolcol++;
+                            }
+                        }
+                    }
+                }
+                }
+                }
+            }
+            /*************************************************************************/
+            for(int ii=0;ii<szesol;ii++)
+            {
+                for(int jj=0;jj<szesolcol;jj++)
+                {
+                    for(int kk=0;kk<szesolrow;kk++)
+                    {
+                        if(sol[ii]==solrow[jj]&&sol[ii]==solcol[kk])
+                        {
+                            cout<<"reached to conflict input"<<endl;
+                            cout<<"value "<<sol[ii]<<" posit"<<l<<" "<<i<<endl;
+                            soduku[l][i]=sol[ii];
+                            cout<<"value in soduku "<<soduku[l][i]<<endl;
+                            return;
+                        }
+                    }
+                }
+            }
+            }
 }
 }
 }

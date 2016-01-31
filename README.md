@@ -15,6 +15,6 @@ example of 6x6 soduku problem is :
 	6	3	2	1	0	5
 	
 where 0 represents blank space in soduku.
-thank you!
+
 
  
