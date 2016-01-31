@@ -16,7 +16,7 @@ example of 6x6 soduku problem is :
 	
 where 0 represents blank space in soduku.
 
-INSTRUCTION FOR USE OF SODUKU-SOLVER FOR 6X6 MATRIX
+INSTRUCTION FOR USING SODUKU-SOLVER FOR 6X6 MATRIX
 
 STEP 1
 
