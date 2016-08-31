@@ -76,7 +76,6 @@ public:
     QFrame *line_3;
     QFrame *line_4;
     QFrame *line_5;
-    QLabel *label_4;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -358,12 +357,6 @@ public:
         line_5->setGeometry(QRect(0, 170, 371, 20));
         line_5->setFrameShadow(QFrame::Plain);
         line_5->setFrameShape(QFrame::HLine);
-        label_4 = new QLabel(centralwidget);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(130, 450, 381, 20));
-        QFont font8;
-        font8.setPointSize(10);
-        label_4->setFont(font8);
         secMainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(secMainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -386,7 +379,6 @@ public:
         label_2->setText(QApplication::translate("secMainWindow", "V 1.0", 0));
         label_3->setText(QApplication::translate("secMainWindow", "Enter Soduku Matrix of 6x6 order", 0));
         pushButton->setText(QApplication::translate("secMainWindow", "Run the Solver", 0));
-        label_4->setText(QApplication::translate("secMainWindow", "* It is compulsory to fill 0 (zero) in unknown place.", 0));
     } // retranslateUi
 
 };

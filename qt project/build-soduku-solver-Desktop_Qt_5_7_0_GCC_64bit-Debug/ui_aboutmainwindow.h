@@ -34,6 +34,9 @@ public:
     QFrame *frame;
     QLabel *label_about;
     QLabel *label_aboutlink;
+    QLabel *label_3;
+    QLabel *label_4;
+    QLabel *label_6;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -82,7 +85,16 @@ public:
         label_about->setWordWrap(true);
         label_aboutlink = new QLabel(frame);
         label_aboutlink->setObjectName(QStringLiteral("label_aboutlink"));
-        label_aboutlink->setGeometry(QRect(290, 200, 111, 21));
+        label_aboutlink->setGeometry(QRect(290, 190, 111, 21));
+        label_3 = new QLabel(frame);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setGeometry(QRect(50, 170, 111, 16));
+        label_4 = new QLabel(frame);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(50, 190, 111, 16));
+        label_6 = new QLabel(frame);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setGeometry(QRect(20, 150, 81, 16));
         AboutMainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(AboutMainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -105,6 +117,9 @@ public:
         label_2->setText(QApplication::translate("AboutMainWindow", "V 1.0", 0));
         label_about->setText(QApplication::translate("AboutMainWindow", "           Soduku Solver V 1.0 is Open Source project which solves the 6x6 Soduku problem of easy and medium level. It is a open source project which is available in github repository and This project welcome each contributer which helps to make this project better.", 0));
         label_aboutlink->setText(QString());
+        label_3->setText(QString());
+        label_4->setText(QString());
+        label_6->setText(QApplication::translate("AboutMainWindow", "Icon Credit", 0));
     } // retranslateUi
 
 };
