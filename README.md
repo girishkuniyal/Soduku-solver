@@ -41,7 +41,7 @@ STEP 2
 ![alt tag](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/step2.png)
 
 #Download Instruction
-Download executable(.exe) file from bin directory.
-
+Download executable(.exe) file from bin directory. or 
+[Download from Sourceforge](https://sourceforge.net/projects/soduku-solver/?source=directory)
 Thank you!!
  
