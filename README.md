@@ -2,12 +2,13 @@
 its a c++ source code for soduku matrix 6x6 solver which accepts digit from 1 to 6. 
 it is a source code for built a program which is able to solve soduku matrix of 6x6.the soduku puzzle is given by user and solution is given by our program.
 
-**How to Run and Contribute**
+
+#How to Run and Contribute
 Now our my focus is to provide GUI version of our program so Qt Creater is used by our project.Open qt project/Soduku-Sovler in qt project and start developing.
 
 1) Contribution in creating binary for Window and create window Qt project. I want GUI in window also.(Because this qt project GUI is for linux version only).
 
-**Steps of Using Soduku Solver(Linux user with Qt creater/library only):**
+#Steps of Using Soduku Solver(Linux user with Qt creater/library only):
 
 STEP 1
 
@@ -22,7 +23,7 @@ STEP 1
 ![alt tag](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/soduku3.png)
 
 
-**Step for using solver (Windows user):**
+#Step for using solver (Windows user):
 
 user will give a soduku for solving contains digit from 1 to 6.
 the empty space in soduku is represented by 0;
@@ -47,8 +48,10 @@ STEP 2
 
 ![alt tag](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/step2.png)
 
+
 #Download Instruction
 Download executable(.exe) file from bin directory. or 
 [Download from Sourceforge](https://sourceforge.net/projects/soduku-solver/?source=directory)
+
 Thank you!!
  
