@@ -18,7 +18,7 @@ STEP 2
 
 ![alt tag](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/soduku2.png)
 
-STEP 1
+STEP 3
 
 ![alt tag](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/soduku3.png)
 
