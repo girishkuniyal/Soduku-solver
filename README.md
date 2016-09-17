@@ -4,7 +4,7 @@ it is a source code for built a program which is able to solve soduku matrix of 
 
 
 #How to Run and Contribute
-Now our my focus is to provide GUI version of our program so Qt Creater is used by our project.Open qt project/Soduku-Sovler in Qt creater and start developing.
+Now our main focus is to provide GUI version of our program so Qt Creater is used by our project.Open qt project/Soduku-Sovler in Qt creater and start developing.
 
 1) Contribution in creating binary for Window and create window Qt project. I want GUI in window also.(Because this qt project GUI is for linux version only).
 
