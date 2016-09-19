@@ -8,7 +8,7 @@ AlertDialog::AlertDialog(QWidget *parent) :
     ui(new Ui::AlertDialog)
 {
     ui->setupUi(this);
-    QPixmap qpicalert("/home/torrent/build-soduku-solver-Desktop_Qt_5_7_0_GCC_64bit-Debug/images/error.png");
+    QPixmap qpicalert("resources/error.png");
 
 }
 

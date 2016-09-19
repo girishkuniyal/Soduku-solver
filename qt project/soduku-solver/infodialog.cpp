@@ -6,7 +6,7 @@ infoDialog::infoDialog(QWidget *parent) :
     ui(new Ui::infoDialog)
 {
     ui->setupUi(this);
-    QPixmap qpicinfo("/home/torrent/build-soduku-solver-Desktop_Qt_5_7_0_GCC_64bit-Debug/images/info.png");
+    QPixmap qpicinfo("resources/info.png");
 }
 
 infoDialog::~infoDialog()

@@ -7,7 +7,7 @@ successdialog::successdialog(QWidget *parent) :
     ui(new Ui::successdialog)
 {
     ui->setupUi(this);
-    QPixmap qpicsuccess("/home/torrent/build-soduku-solver-Desktop_Qt_5_7_0_GCC_64bit-Debug/images/success.png");
+    QPixmap qpicsuccess("resources/success.png");
 }
 successdialog::~successdialog()
 {

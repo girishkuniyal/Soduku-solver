@@ -7,7 +7,7 @@ helpMainWindow::helpMainWindow(QWidget *parent) :
     ui(new Ui::helpMainWindow)
 {
     ui->setupUi(this);
-    QPixmap qpicabouts("/home/torrent/build-soduku-solver-Desktop_Qt_5_7_0_GCC_64bit-Debug/images/brain.png");
+    QPixmap qpicabouts("resources/brain.png");
 
 }
 

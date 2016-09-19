@@ -33,7 +33,7 @@ secMainWindow::secMainWindow(QWidget *parent) :
     ui(new Ui::secMainWindow)
 {
     ui->setupUi(this);
-    QPixmap qpic("/home/torrent/build-soduku-solver-Desktop_Qt_5_7_0_GCC_64bit-Debug/images/brain.png");
+    QPixmap qpic("resources/brain.png");
     ui->label_5->setPixmap(qpic.scaled(50,50,Qt::KeepAspectRatio));
 
      ui->lineEdit->setValidator(new QIntValidator(0, 6, this));

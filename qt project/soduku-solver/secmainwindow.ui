@@ -51,6 +51,9 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/new/prefix1/brain.png);</string>
+    </property>
     <property name="text">
      <string>TextLabel</string>
     </property>
