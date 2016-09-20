@@ -7,7 +7,7 @@ helpMainWindow::helpMainWindow(QWidget *parent) :
     ui(new Ui::helpMainWindow)
 {
     ui->setupUi(this);
-    QPixmap qpicabouts("resources/brain.png");
+    QPixmap qpicabouts("./resources/brain.png");
 
 }
 

@@ -6,7 +6,7 @@ infoDialog::infoDialog(QWidget *parent) :
     ui(new Ui::infoDialog)
 {
     ui->setupUi(this);
-    QPixmap qpicinfo("resources/info.png");
+    QPixmap qpicinfo("./resources/info.png");
 }
 
 infoDialog::~infoDialog()

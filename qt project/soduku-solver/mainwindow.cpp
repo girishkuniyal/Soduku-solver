@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QPixmap qpic("resources/brain.png");
+    QPixmap qpic("./resources/brain.png");
     ui->label_2->setPixmap(qpic.scaled(60,60,Qt::KeepAspectRatio));
 }
 

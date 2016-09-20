@@ -7,7 +7,7 @@ successdialog::successdialog(QWidget *parent) :
     ui(new Ui::successdialog)
 {
     ui->setupUi(this);
-    QPixmap qpicsuccess("resources/success.png");
+    QPixmap qpicsuccess("./resources/success.png");
 }
 successdialog::~successdialog()
 {

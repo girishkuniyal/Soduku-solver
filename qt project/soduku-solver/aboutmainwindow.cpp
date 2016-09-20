@@ -6,7 +6,7 @@ AboutMainWindow::AboutMainWindow(QWidget *parent) :
     ui(new Ui::AboutMainWindow)
 {
     ui->setupUi(this);
-    QPixmap qpicabouts("resources/brain.png");
+    QPixmap qpicabouts("./resources/brain.png");
 
             ui->label_aboutlink->setText("<a href=\"http://github.com/girishkuniyal/soduku-solver.git\">Repository</a>");
             ui->label_aboutlink->setTextFormat(Qt::RichText);
