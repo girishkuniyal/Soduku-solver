@@ -7,6 +7,7 @@ infoDialog::infoDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     QPixmap qpicinfo("./resources/info.png");
+    ui->label_infoerror->setPixmap(qpicinfo.scaled(70,70,Qt::KeepAspectRatio));
 }
 
 infoDialog::~infoDialog()

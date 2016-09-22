@@ -64,7 +64,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix1/brain.png);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>

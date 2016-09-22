@@ -43,7 +43,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">image: url(:/new/prefix1/error.png);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
