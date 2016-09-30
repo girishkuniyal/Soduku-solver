@@ -8,7 +8,7 @@ Now our main focus is to provide GUI version of our program so Qt Creater is use
 
 1) Contribution in creating binary for Window and create window Qt project. I want GUI in window also.(Because this qt project GUI is for linux version only).
 
-#Steps of Using Soduku Solver(Linux user with Qt creater/library only):
+#Steps of Using Soduku Solver:
 
 STEP 1
 
@@ -23,34 +23,8 @@ STEP 3
 ![alt tag](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/soduku3.png)
 
 
-#Step for using solver (Windows user):
-
-user will give a soduku for solving contains digit from 1 to 6.
-the empty space in soduku is represented by 0;
-example of 6x6 soduku problem is :
-
-	2	0	1	6	3	4
-	0	4	6	2	5	0	
-	1	2	5	0	6	3
-	4	6	3	5	0	2	
-	0	1	4	0	2	6
-	6	3	2	1	0	5
-	
-where 0 represents blank space in soduku.
-
-INSTRUCTION FOR USING SODUKU-SOLVER FOR 6X6 MATRIX
-
-STEP 1
-
-![alt tag](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/step1.png)
-
-STEP 2
-
-![alt tag](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/step2.png)
-
-
 #Download Instruction
-Download executable(.exe) file from bin directory. or 
+
 [Download from Sourceforge](https://sourceforge.net/projects/soduku-solver/?source=directory)
 
 Thank you!!
