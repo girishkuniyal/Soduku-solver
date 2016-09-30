@@ -33,7 +33,7 @@ secMainWindow::secMainWindow(QWidget *parent) :
     ui(new Ui::secMainWindow)
 {
     ui->setupUi(this);
-    QPixmap qpic("./resources/brain.png");
+    QPixmap qpic("icon/brain.png");
     ui->label_5->setPixmap(qpic.scaled(50,50,Qt::KeepAspectRatio));
 
      ui->lineEdit->setValidator(new QIntValidator(0, 6, this));

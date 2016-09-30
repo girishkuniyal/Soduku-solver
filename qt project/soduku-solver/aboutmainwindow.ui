@@ -10,6 +10,18 @@
     <height>369</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>466</width>
+    <height>369</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>466</width>
+    <height>369</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Soduku Solver - About</string>
   </property>
@@ -64,7 +76,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">image: url(:/new/prefix1/brain.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -182,7 +194,7 @@
      <x>0</x>
      <y>0</y>
      <width>466</width>
-     <height>19</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

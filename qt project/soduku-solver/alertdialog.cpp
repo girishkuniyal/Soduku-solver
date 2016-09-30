@@ -8,9 +8,7 @@ AlertDialog::AlertDialog(QWidget *parent) :
     ui(new Ui::AlertDialog)
 {
     ui->setupUi(this);
-    QPixmap qpicalert("./resources/error.png");
-    ui->label_alert->setPixmap(qpicalert.scaled(70,70,Qt::KeepAspectRatio));
-
+    QPixmap qpicalert("icon/error.png");
 
 }
 

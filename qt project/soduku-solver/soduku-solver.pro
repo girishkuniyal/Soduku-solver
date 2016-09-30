@@ -11,7 +11,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = soduku-solver
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
         mainwindow.cpp \
     secmainwindow.cpp \
@@ -42,3 +41,5 @@ RESOURCES += \
 
 DISTFILES += \
     ../build-soduku-solver-Desktop_Qt_5_7_0_GCC_64bit-Debug/images/brain.png
+
+RC_FILE = myapp.rc

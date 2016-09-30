@@ -7,8 +7,7 @@ successdialog::successdialog(QWidget *parent) :
     ui(new Ui::successdialog)
 {
     ui->setupUi(this);
-    QPixmap qpicsuccess("./resources/success.png");
-    ui->label_success->setPixmap(qpicsuccess.scaled(70,70,Qt::KeepAspectRatio));
+    QPixmap qpicsuccess("icon/success.png");
 }
 successdialog::~successdialog()
 {

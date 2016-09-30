@@ -10,6 +10,18 @@
     <height>112</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>565</width>
+    <height>112</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>565</width>
+    <height>112</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Soduku Solver - Alert</string>
   </property>

@@ -10,6 +10,18 @@
     <height>498</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>565</width>
+    <height>498</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>565</width>
+    <height>498</height>
+   </size>
+  </property>
   <property name="font">
    <font>
     <family>Garuda</family>
@@ -32,7 +44,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Purisa</family>
+      <family>Segoe Print</family>
       <pointsize>16</pointsize>
       <weight>75</weight>
       <bold>true</bold>
@@ -50,9 +62,6 @@
       <width>61</width>
       <height>51</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/new/prefix1/brain.png);</string>
     </property>
     <property name="text">
      <string>TextLabel</string>
@@ -87,6 +96,7 @@
     </property>
     <property name="font">
      <font>
+      <family>MS Sans Serif</family>
       <pointsize>15</pointsize>
       <weight>75</weight>
       <bold>true</bold>
@@ -121,7 +131,7 @@
       <x>170</x>
       <y>410</y>
       <width>191</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -986,7 +996,7 @@
      <x>0</x>
      <y>0</y>
      <width>565</width>
-     <height>27</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
