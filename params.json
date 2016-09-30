@@ -1,6 +1,6 @@
 {
   "name": "Soduku-solver",
-  "tagline": "Code in C++  for sudoku matrix solver of 6x6 size. ",
+  "tagline": "Code in C++  for soduku matrix solver of 6x6 size. ",
   "body": "# Soduku-solver\r\nits a c++ source code for soduku matrix 6x6 solver which accepts digit from 1 to 6. \r\nit is a source code for built a program which is able to solve soduku matrix of 6x6.the soduku puzzle is given by user and solution is given by our program.\r\n\r\n\r\n#How to Run and Contribute\r\nNow our main focus is to provide GUI version of our program so Qt Creater is used by our project.Open qt project/Soduku-Sovler in Qt creater and start developing.\r\n\r\n1) Contribution in creating binary for Window and create window Qt project. I want GUI in window also.(Because this qt project GUI is for linux version only).\r\n\r\n#Steps of Using Soduku Solver:\r\n\r\nSTEP 1\r\n\r\n![alt tag](https://raw.githubusercontent.com/girishkuniyal/Soduku-solver/master/screenshot/soduku1.png)\r\n\r\nSTEP 2\r\n\r\n![alt tag](https://raw.githubusercontent.com/girishkuniyal/Soduku-solver/master/screenshot/soduku2.png)\r\n\r\nSTEP 3\r\n\r\n![alt tag](https://raw.githubusercontent.com/girishkuniyal/Soduku-solver/master/screenshot/soduku3.png)\r\n\r\n\r\n#Download Instruction\r\n\r\nDownload from Sourceforge or [Click here](https://sourceforge.net/projects/soduku-solver/?source=directory)\r\n\r\nThank you!!\r\n \r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
