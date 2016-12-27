@@ -1,0 +1,18 @@
+<svg width="315" height="34" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="317" height="36" id="canvas_background" fill="#fff"/>
+  <g id="canvasGrid" display="none">
+   <rect id="svg_3" width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect fill="#505050" stroke="#505050" stroke-width="1.5" x="0.5" y="-0.5" width="144" height="34" id="svg_1"/>
+  <rect fill="#40c010" stroke="#40c010" stroke-width="1.5" x="145.5" y="-0.5" width="171.999994" height="34" id="svg_2"/>
+  <text fill="#ffffff" stroke="#40c010" stroke-width="0" x="16.929747" y="16.005788" id="svg_4" font-size="24" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" transform="matrix(0.964769, 0, 0, 0.894128, 2.06103, 10.2336)">Download</text>
+  <text fill="#ffffff" stroke="#505050" stroke-width="0" x="157.378465" y="-0.46405" id="svg_5" font-size="24" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" transform="matrix(0.908657, 0, 0, 0.904555, 18.2759, 23.7587)">Soduku-Solver</text>
+ </g>
+</svg>
