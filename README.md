@@ -25,7 +25,7 @@ STEP 3
 
 #Download Instruction
 
-[![Download link](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/method-draw-image-1.svghttps://raw.githubusercontent.com/girishkuniyal/Soduku-solver/master/screenshot/download.jpg)](https://sourceforge.net/projects/soduku-solver/?source=directory)
+[![Download link](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/download.jpg)](https://sourceforge.net/projects/soduku-solver/?source=directory)
 
 Thank you!!
  
