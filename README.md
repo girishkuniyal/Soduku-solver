@@ -1,5 +1,5 @@
 # Soduku-solver
-its a c++ source code for soduku matrix 6x6 solver which accepts digit from 1 to 6. 
+It is a c++ source code for soduku matrix 6x6 solver which accepts digit from 1 to 6. 
 it is a source code for built a program which is able to solve soduku matrix of 6x6.the soduku puzzle is given by user and solution is given by our program.
 
 
@@ -25,7 +25,7 @@ STEP 3
 
 #Download Instruction
 
-[Download from Sourceforge](https://sourceforge.net/projects/soduku-solver/?source=directory)
+[![Download link](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/method-draw-image-1.svg)](https://sourceforge.net/projects/soduku-solver/?source=directory)
 
 Thank you!!
  
