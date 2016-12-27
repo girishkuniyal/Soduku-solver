@@ -25,7 +25,7 @@ STEP 3
 
 #Download Instruction
 
-[![Download link](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/download.jpg)](https://sourceforge.net/projects/soduku-solver/?source=directory)
+[![Download link](https://githkub.com/girishkuniyal/soduku-solver/blob/master/screenshot/download.jpg)](https://sourceforge.net/projects/soduku-solver/?source=directory)
 
 Thank you!!
  
