@@ -4,7 +4,7 @@ it is a source code for built a program which is able to solve soduku matrix of 
 
 
 #How to Run and Contribute
-Now our main focus is to provide Better GUI version of our program so Qt Creater(A C++ GUI library) is used by our project.first download [qt IDE](https://www.qt.io/) and Open qt project/Soduku-Sovler in Qt creater IDE and start contributing.
+Now our main focus is to provide Better GUI version of our program so Qt Creater(A C++ GUI library) is used by our project. first download [Qt IDE](https://www.qt.io/) and Open qt project/Soduku-Sovler in Qt creater IDE and start contributing.
 
 1) Contribution in creating binary release package for linux platform (creation of deb package etc).
 2) Contribution in creating robust Algorithm for soduku-solver which can solve any soduku problem(including hard one).
