@@ -4,23 +4,24 @@ it is a source code for built a program which is able to solve soduku matrix of 
 
 
 #How to Run and Contribute
-Now our main focus is to provide GUI version of our program so Qt Creater is used by our project.Open qt project/Soduku-Sovler in Qt creater and start developing.
+Now our main focus is to provide Better GUI version of our program so Qt Creater(A C++ GUI library) is used by our project.first download [qt IDE](https://www.qt.io/) and Open qt project/Soduku-Sovler in Qt creater IDE and start contributing.
 
-1) Contribution in creating binary for Window and create window Qt project. I want GUI in window also.(Because this qt project GUI is for linux version only).
+1) Contribution in creating binary release package for linux platform (creation of deb package etc).
+2) Contribution in creating robust Algorithm for soduku-solver which can solve any soduku problem(including hard one).
 
 #Steps of Using Soduku Solver:
 
 STEP 1
 
-![alt tag](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/soduku1.png)
+![step 1 image](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/soduku1.png)
 
 STEP 2
 
-![alt tag](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/soduku2.png)
+![step 2 image](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/soduku2.png)
 
 STEP 3
 
-![alt tag](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/soduku3.png)
+![step 3 image](https://github.com/girishkuniyal/soduku-solver/blob/master/screenshot/soduku3.png)
 
 
 #Download Instruction
