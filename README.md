@@ -27,7 +27,7 @@ STEP 3
 
 #  Download Instruction
 
-[![![download](https://img.shields.io/badge/download-sourceforge-green.svg)](https://githkub.com/girishkuniyal/soduku-solver/blob/master/screenshot/download.jpg)](https://sourceforge.net/projects/soduku-solver/?source=directory)  ![love tag](https://img.shields.io/badge/made%20with-%3C3-red.svg)
+[![ ![download](https://img.shields.io/badge/download-sourceforge-green.svg) ](https://githkub.com/girishkuniyal/soduku-solver/blob/master/screenshot/download.jpg)](https://sourceforge.net/projects/soduku-solver/?source=directory)  ![love tag](https://img.shields.io/badge/made%20with-%3C3-red.svg)
 
 Thank you!!
  
